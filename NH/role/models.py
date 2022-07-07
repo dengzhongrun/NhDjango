@@ -142,7 +142,7 @@ class HouseMainInfo(models.Model):
     responsible = models.ForeignKey(PersonInfo, on_delete=models.CASCADE, verbose_name="责任人（接收的业务人员）")
     # 建档时间
     join_time = models.DateTimeField(auto_now_add=True, verbose_name=u"建档时间")
-    # 贷款金额
+    # 可贷款金额
     loanable = models.FloatField(default=0, verbose_name=u"贷款金额(元)")
 
     class Meta:
