@@ -1,0 +1,107 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <link href="" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<style>
+  input ,textarea{
+            outline: none;
+        }
+        textarea {
+            resize: none; /*防止文本框拖拽*/
+            line-height: 50px; /*设置line-height与父级元素的height相等*/
+            text-align: center; /*设置文本水平居中*/
+            overflow: hidden; /*防止内容超出容器或者产生自动换行*/
+        }
+               fieldset
+            {
+                margin:30px auto;
+                width:560px;
+                height:720px;
+                padding:20px  auto;
+                color:#0167B2;
+                text-align:center;
+            }
+
+    .label{
+        font-size:16px;
+        display: inline-block;
+		width: 150px;
+		text-align: justify;
+		text-align-last: justify;
+<!--		line-height:center;-->
+
+    }
+    span{
+        color:red;
+    }
+
+</style>
+<body>
+    <form action="/add" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend style="font-size:18px">添加人员</legend>
+        <label class="label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名<span>*</span>:</label>
+            <input type="text" name="name" style="width:350px" placeholder="姓名">
+        <br><br>
+
+            <div>
+                <label class="label">身&nbsp;&nbsp;&nbsp;份&nbsp;&nbsp;&nbsp;证&nbsp;&nbsp;号<span>*</span>:</label>
+                <input type="text" name="id_num" placeholder="身份证号" style="width:350px">
+            </div>
+        <br><br>
+            <label class="label">员&nbsp;&nbsp;&nbsp;工&nbsp;&nbsp;&nbsp;编&nbsp;&nbsp;号<span>*</span>:</label>
+            <input type="text" name="staff_id" style="width: 350px" placeholder="'员工编号">
+        <br><br>
+            <label class="label">所&nbsp;&nbsp;属&nbsp;&nbsp;区&nbsp;&nbsp;域<span>*</span>:</label>
+            <input type="text" style="width:350px" name="area" placeholder="所属区域" />
+        <br><br>
+            <label class="label"> 入&nbsp;&nbsp;职&nbsp;&nbsp;时&nbsp;&nbsp;间<span>*</span>:</label>
+            <input type="text" style="width:350px"name="join_time" placeholder="入职时间">
+        <br><br>
+            <label class="label"> 电&nbsp;&nbsp;话&nbsp;&nbsp;号&nbsp;&nbsp;码<span>*</span>:</label>
+            <input type="text" style="width:350px" name="phone" placeholder="电话号码"/>
+        <br><br>
+            <label class="label"> 邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱<span>*</span>:</label>
+            <input type="email" style="width:350px" name="email" placeholder="邮箱"/>
+        <br><br>
+            <label class="label">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄<span>*</span>:</label>
+            <input type="text" style="width:350px" name="age" placeholder="年龄"/>
+        <br><br>
+            <label class="label"> 性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别<span>*</span>:</label>
+            <input type="text" style="width:350px" name="sex" placeholder="性别"/>
+        <br><br>
+            <label class="label"> 教&nbsp;&nbsp;育&nbsp;&nbsp;背&nbsp;&nbsp;景<span>*</span>:</label>
+            <input type="text" style="width:350px" name="edu_back" placeholder="教育背景"/>
+        <br><br>
+            <label class="label"> 是&nbsp;&nbsp;否&nbsp;&nbsp;管&nbsp;理&nbsp;员<span>*</span>:</label>
+            <input type="text" style="width:350px" name="administrator" placeholder="是否为管理员"/>
+        <br><br>
+            <label class="label"> 电&nbsp;&nbsp;话&nbsp;号&nbsp;&nbsp;&nbsp;码<span>*</span>:</label>
+            <input type="text" style="width:350px" name="phone" placeholder="电话号码"/>
+        <br><br>
+            <label class="label"> 上&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司<span>*</span>:</label>
+            <input type="text" style="width:350px" name="boss" placeholder="上司"/>
+        <br><br>
+            <label class="label"> 管&nbsp;&nbsp;&nbsp;理&nbsp;&nbsp;&nbsp;员<span>*</span>:</label>
+            <input type="text" style="width:350px" name="user_id" placeholder="管理员"/>
+        <br><br>
+            <label class="label">个&nbsp;&nbsp;人&nbsp;&nbsp;简&nbsp;&nbsp;介<span>*</span>:</label>
+            <textarea name="file" style="resize:none; width:350px;height:60px;vertical-align:middle;"  maxlength= " 500"placeholder="个人简介"></textarea>
+        <br><br>
+            <input type="submit" name="Button" value="提交"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{#            <input type="reset" name="Reset" value="重填"/>#}
+        </fieldset>
+    </form>
+    </center>
+    </div>
+    <div class="clear">
+
+    </div>
+
+</div>
+</body>
+</html>

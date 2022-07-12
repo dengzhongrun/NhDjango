@@ -7,11 +7,13 @@ class PersonInfo(models.Model):
     types_dict_choice = [(0, "男"), (1, "女")]
     name = models.CharField(max_length=20, help_text=u'姓名', verbose_name='姓名')
     id_num = models.CharField(max_length=20, help_text=u'身份证号码', unique=True, verbose_name='身份证号码')
+    staff_id = models.IntegerField(help_text='员工编号', unique=True,verbose_name='员工编号', null=True)
     age = models.IntegerField(help_text=u'年龄', verbose_name='年龄', )
-    sex = models.IntegerField(choices=types_dict_choice, help_text=u'性别', verbose_name='性别')
+    sex = models.IntegerField(help_text=u'性别', verbose_name='性别')
     height = models.IntegerField(help_text=u'身高', verbose_name='身高(cm)', null=True)
-    email = models.EmailField(verbose_name='邮箱地址', null=True)
     weight = models.IntegerField(help_text=u'体重', verbose_name='体重(kg)', null=True)
+    password = models.CharField(max_length=20, help_text='密码', verbose_name='密码', null=True)
+    email = models.EmailField(verbose_name='邮箱地址', null=True)
     # 教育背景
     edu_back = models.CharField(max_length=50, help_text=u'教育背景', verbose_name='教育背景')
     # 是否为管理员
@@ -20,14 +22,14 @@ class PersonInfo(models.Model):
     boss = models.CharField(max_length=20, help_text=u'上司', verbose_name='上司')
     # 特长与喜好
     Hob_Tal = models.CharField(max_length=200,help_text=u'特长与喜好', verbose_name='特长与喜好', null=True)
-    photo = models.ImageField(help_text=u'照片', verbose_name='照片', null=True)
     phone_number = models.CharField(max_length=11, help_text=u'联系电话', verbose_name='联系电话')
     area = models.CharField(max_length=20, help_text=u'所属区域', verbose_name='所属区域')
     home_address = models.CharField(max_length=200, help_text=u'家庭住址', verbose_name='家庭住址', null=True)
     join_time = models.DateTimeField(auto_now_add=True, help_text=u'加入时间', verbose_name='加入时间', null=True)
     # 个人简介
     person_file = models.TextField(help_text=u'个人简介', verbose_name='个人简介')
-    user = models.ForeignKey(to=User, to_field="id", on_delete=models.CASCADE)
+    user_id = models.CharField(max_length=20, help_text=u'管理员',verbose_name='管理员')
+    photo = models.ImageField(help_text=u'照片', verbose_name='照片', null=True)
 
     class Meta:
         ordering = ("join_time",)
@@ -171,3 +173,4 @@ class PeopleOfMain(models.Model):
     class Meta:
         verbose_name_plural = "户主家庭成员"
         verbose_name = "户主家庭成员"
+

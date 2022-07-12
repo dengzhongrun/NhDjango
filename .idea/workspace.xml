@@ -15,9 +15,21 @@
       </list>
     </option>
   </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="a1a5dfdf-6f46-4253-ac78-6afcfdb89dc3" />
   <component name="ProjectId" id="2BZUYnJc7ReHkMLE9cdcdmrRDje" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
@@ -33,13 +45,14 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\大三下实训\NhDjango\NH" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript 调试.index.html">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/NhDjango/templates/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -67,7 +80,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript 调试.index.html" />
         <item itemvalue="Python.urls" />
       </list>
     </recent_temporary>
@@ -82,11 +94,26 @@
       <updated>1657113150382</updated>
       <workItem from="1657113151503" duration="3543000" />
       <workItem from="1657163302100" duration="2852000" />
+      <workItem from="1657183614899" duration="2282000" />
+      <workItem from="1657206807408" duration="4349000" />
+      <workItem from="1657256454257" duration="11510000" />
+      <workItem from="1657268567259" duration="1030000" />
+      <workItem from="1657269769695" duration="746000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="368" y="37" key="FileChooserDialogImpl" timestamp="1657270522928">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="368" y="37" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1657270522928" />
+    <state x="25" y="0" key="SettingsEditor" timestamp="1657264999511">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="25" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1657264999511" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/NhDjango$urls.coverage" NAME="urls 覆盖结果" MODIFIED="1657163886233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NH/NH" />

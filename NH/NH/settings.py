@@ -150,3 +150,4 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # AUTH_USER_MODEL="nh.User"  #表示哪张表继承了auth_user表（在给auth_user添加字段用到）
+APPEND_SLASH=False
