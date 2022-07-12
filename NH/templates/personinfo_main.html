@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>业务人员信息管理</title>
+</head>
+<body>
+<div class="div1">
+
+    <span><h2 style="text-align: center;">业务人员信息管理</h2></span>
+    <div style="text-align: center">
+        <button style="text-align: center;"><a href="/person_list">查看人员信息</a></button>
+        <button><a href="/personinfo_add">添加人员信息</a></button>
+        <button><a href="/personinfo_delete">删除人员信息</a></button>
+    </div>
+
+</div>
+<style>
+    .div1{
+        width: 50%;
+        height: 50%;
+        background: #eee;
+        border: 1px solid #ccc;
+        position: absolute;
+        left: 30%;top: 30%;
+        margin-left: -50px;
+        margin-top: -50px;
+        background: url("{% static 'images/lb_2.jpg' %}");
+    }
+    button {
+
+       border: none;
+
+       color: white;
+
+       padding: 10px 20px;
+
+       text-align: center;
+
+       font-size: 16px;
+
+       cursor: pointer;
+       border-radius: 30px;
+
+   }
+
+
+</style>
+
+</body>
+</html>

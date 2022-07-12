@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>业务人员管理</title>
+{#	<link rel="stylesheet" type="text/css" href="Table.css">#}
+</head>
+<body>
+<div style="text-align: center;padding-top: 1px">
+    <h1>业务人员信息表</h1>
+</div>
+<form>
+    <table class="Modbus">
+			<thead>
+			<tr>
+                <th>姓名</th>
+                <th>身份证号</th>
+                <th>员工编号</th>
+                <th>所属区域</th>
+                <th>入职时间</th>
+                <th>电话号码</th>
+                <th>邮箱</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>教育背景</th>
+                <th>是否为管理员</th>
+                <th>上司</th>
+                <th>家庭住址</th>
+                <th>管理员</th>
+			</tr>
+			</thead>
+            {% for person in personinfo_list %}
+{#                {% if person.administrator == True %}#}
+                  <tr>
+                  <td class="item1">{{ person.name }}</td>
+                  <td class="item2">{{ person.id_num }}</td>
+                  <td class="item3">{{ person.staff_id }}</td>
+                  <td class="item4">{{ person.area }}</td>
+                  <td class="item5">{{ person.join_time|date:'Y-m-d' }}</td>
+                  <td class="item6">{{ person.phone_number }}</td>
+                  <td class="item7">{{ person.email }}</td>
+                  <td class="item8">{{ person.age }}</td>
+                  {% if person.sex == 0%}
+                      <td class="item9">女</td>
+                      {% else %}
+                      <td class="item10">男</td>
+                  {% endif %}
+
+                  <td class="item11">{{ person.edu_back }}</td>
+                  {% if person.administrator == True %}
+                      <td class="item12">是</td>
+                      {% else %}
+                      <td class="item13">否</td>
+                  {% endif %}
+                  <td class="item14">{{ person.boss }}</td>
+                  <td class="item15">{{ person.home_address }}</td>
+                  <td class="item16">{{ person.user_id }}</td>
+                  </tr>
+{#            {% endif %}#}
+          {% endfor %}
+
+		</table>
+</form>
+ <div class="pagination" style="width: 100%;" align="right">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1">首页</a>
+                            <a href="?page={{ page_obj.previous_page_number }}">《上一页</a>
+                        {% endif %}
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">》下一页</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">》末页</a>
+                    {% endif %}
+                    <span class="current">
+                        第{{ page_obj.number }} 页/共{{ page_obj.paginator.num_pages }}页
+                    </span>
+                    </span>
+            </div>
+
+<style type="text/css">
+    a{
+        text-decoration: none;
+        display: inline-block;
+        border: 1px solid #333333;
+        font-size: 5px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .current{
+        font-size: 10px;
+    }
+
+</style>
+
+</body>
+<style>
+    body
+{
+	font-family:'trebuchet MS', 'Lucida sans', Arial;   /*设置字体*/
+	font-size: 10px;                                    /*设置字体大小14px*/
+	color: #555;                                        /*设置字体颜色浅灰色*/
+	width: 100%;                                         /*设置页面宽度占浏览器大小的40%*/
+	margin: 60px auto;                                  /*页面自适应居中*/
+}
+
+table
+{
+	width: 100%;                                        /*表格占据整个页面*/
+	border-spacing: 0;                                  /*单元格边框间距为0*/
+	box-shadow: 0 1px 1px #ccc;                         /*设置表格外边框阴影,有立体感*/
+}
+
+.Modbus
+{
+	border:solid #ccc 1px;                              /*设置表格外边框*/
+	border-radius: 10px;                                /*设置表格外边框圆角*/
+}
+
+.Modbus td,.Modbus th
+{
+	border-right:solid #ccc 1px;                        /*设置表格单元格外边框，只设置右下边框*/
+	border-bottom: solid #ccc 1px;
+	padding: 10px;                                      /*设置单元格内边距，单元格内容显得不拥挤*/
+	text-align: center;                                 /*单元格内容居中*/
+}
+
+.Modbus thead
+{
+	background-color: #dce9f9;                          /*设置表头背景色*/
+}
+
+.Modbus td:last-child,.Modbus th:last-child
+{
+	border-right: none;                                 /*去掉表格每一行最后一列的右边框*/
+}
+
+.Modbus tr:last-child td
+{
+	border-bottom: none;                                /*去掉最后一行中所有单元格的下边框*/
+}
+
+/*单元格设置圆角*/
+.Modbus th:first-child
+{
+	border-radius: 10px 0 0 0;
+}
+
+.Modbus th:last-child
+{
+	border-radius: 0 10px 0 0;
+}
+
+.Modbus tr:last-child td:first-child
+{
+	border-radius: 0 0 0 10px;
+}
+
+.Modbus tr:last-child td:last-child
+{
+	border-radius: 0 0 10px 0;
+}
+
+/*鼠标移动至单元格，单元格高亮显示*/
+.Modbus tr:hover
+{
+	background: #fbf8e9;
+}
+
+/*分别设置每一行中单元格的宽度*/
+.item1
+{
+	width: 5%;
+}
+
+.item2
+{
+	width: 15%;
+}
+.item3
+{
+	width: 5%;
+}
+.item4
+{
+	width: 5%;
+}
+h1{
+    align-self: center;
+}
+/* 表头固定 */
+.table-container thead tr > th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/* 表头首列强制最顶层 */
+.table-container thead tr > th:first-child {
+  z-index: 3;
+}
+</style>
+</html>
