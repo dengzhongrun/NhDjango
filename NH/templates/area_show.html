@@ -1,0 +1,507 @@
+{% extends 'index.html' %}
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block js %}
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/china.js"></script>
+    {% endblock %}
+    <title>Title</title>
+    {% block css %}
+    <style>
+        #bigDiv{
+            margin:auto;
+            width:95%;
+            height:700px;
+            border:1px solid write;
+            position:relative;
+        }
+        #bigDiv div{
+            position: absolute;
+            border:1px solid write;
+        }
+        #header{
+            top:0px;
+            left:0px;
+            padding:0px;
+            margin:0px;
+            width:100%;
+            height:100px;
+        }
+        #header2{
+            left:20%;
+            width:60%;
+            height:100px;
+        }
+        #header_table{
+            width:100%;
+            height:100px;
+            border:1px solid write;
+        }
+        #header_table,tr,th{
+            text-align: center;
+        }
+        #tr1{
+            font-size:40px;
+            color:yellow;
+            font-weight:800;
+        }
+        #tr2{
+            font-size:18px;
+            font-weight:700;
+            color:rgb(80,80,80);
+        }
+        #content{
+            top:100px;
+            left:0px;
+            padding:0px;
+            margin:0px;
+            width:100%;
+            height:400px;
+        }
+        #content1{
+            left:0px;
+            width:25%;
+            height:400px;
+        }
+        #content2{
+            left:25%;
+            width:45%;
+            height:400px;
+        }
+        #footer{
+            bottom:0px;
+            left:0px;
+            padding:0px;
+            margin:0px;
+            width:100%;
+            height:200px;
+        }
+        #footer1{
+            width:33%;
+            height:200px;
+        }
+        #footer2{
+            left:33.3%;
+            width:33.3%;
+            height:200px;
+        }
+        #footer3{
+            right:0px;
+            width:33%;
+            height:200px;
+        }
+        #content3{
+            top:20px;
+            overflow: hidden;
+            right:0px;
+            width:25%;
+            height:360px;
+        }
+        ul{
+            list-style-type:none;
+        }
+        li{
+            height: 20px;
+            line-height: 20px;
+            width:85%;
+            animation: play 4s linear infinite;
+        }
+        @keyframes play{
+            0%{transform: translateY(0px)}
+            100%{transform: translateY(-600px)}
+        }
+        ul:hover li{
+            animation: none
+        }
+        .class1{
+            float:left;
+            color:red;
+            font-size:14px;
+        }
+        .class2{
+            float:right;
+            font-size:14px;
+        }
+    </style>
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+<div id="bigDiv">
+    <div id="header">
+        <div id="header1"></div>
+        <div id="header2">
+            <table id="header_table">
+                <tr id="tr1">
+                    <td height="50%"></td>
+                    <td height="50%"></td>
+                    <td height="50%"></td>
+                </tr>
+                <tr id="tr2">
+                    <td width="33%">总建档数</td>
+                    <td width="33%">今年建档数</td>
+                    <td width="33%">最高建档区域</td>
+                </tr>
+            </table>
+        </div>
+        <div id="header3"></div>
+    </div>
+    <div id="content">
+        <div id="content1"></div>
+        <div id="content2"></div>
+        <div id="content3">
+            <ul id="run_ul">
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer1"></div>
+        <div id="footer2"></div>
+        <div id="footer3"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	var myChart1 = echarts.init(document.getElementById("footer1"));
+	var myChart2 = echarts.init(document.getElementById("footer2"));
+	var myChart3 = echarts.init(document.getElementById("content2"));
+	var myChart4 = echarts.init(document.getElementById("content1"));
+	var myChart5 = echarts.init(document.getElementById("footer3"));
+    var option1 = {
+      xAxis: {
+        type: 'category',
+        data: []
+      },
+      yAxis: {
+        type: 'value',
+        scale:true,
+        name: "建档人数",
+      },
+      tooltip:{
+			trigger:'item',//触发类型，根据里面的物件触发
+			triggerOn:'mousemove',  //点击  ,还有mousemove
+			// formatter:'{b}:{c}'
+			formatter:function(arg){
+				// console.log(arg)
+				return arg.name + '建档：' + arg.data + '人'
+			}
+	  },
+      grid:{
+            top: "20%",
+			width : "80%",
+			height : "60%",
+			show : true,
+	  },
+      series: [
+        {
+          data: [],
+          type: 'bar'
+        }
+      ]
+    };
+
+    const colors = ['#5470C6', '#91CC75', '#EE6666'];
+    var option2 = {
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: []
+      },
+      yAxis: {
+        type: 'value',
+        name: "成交数量",
+      },
+      tooltip: {
+        trigger: 'axis',
+        formatter: function (params, ticket, callback) {
+              return params[0].axisValue + " 成交量： " + params[0].value;
+             }
+        },
+      grid:{
+            top: "20%",
+            left:"12%",
+			width : "80%",
+			height : "60%",
+			show : true,
+	  },
+      series: [
+        {
+          data: [],
+          type: 'line',
+          symbol: 'none',
+          areaStyle: {}
+        }
+      ]
+    };
+
+    var option3 = {
+            visualMap: {
+              left: 'right',
+              min: 0,
+              max: 30,
+              inRange: {
+                // prettier-ignore
+                color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+              },
+              //   text: ['多', '少'],
+              calculable: true
+            },
+            grid:{
+                width : "100%",
+                height : "100%",
+            },
+            tooltip: {
+              trigger: 'item',
+              showDelay: 0,
+              transitionDuration: 0.2,
+              formatter(params) {
+                // 没有数据的省份不弹出显示
+                if (isNaN(params.value)) {
+                  return null
+                }
+
+                return params.value
+              }
+            },
+            series: [
+              {
+                name: '',
+                type: 'map',
+                map: 'china',  // 中国地图
+<!--                roam: true, // 滚动缩放-->
+                itemStyle: {
+                  areaColor: '#fff'  // 省份块的颜色
+                },
+                label: {
+                normal: {
+                    show: true
+                },
+                emphasis: {
+                    show: true
+                }
+                },
+                data: []  // 省份数据
+              }
+            ]
+          }
+    var option4 = {
+<!--      tooltip: {-->
+<!--        trigger: 'item'-->
+<!--      },-->
+      legend: {
+        top: '5%',
+        left: 'center'
+      },
+      series: [
+        {
+          name: 'Access From',
+          type: 'pie',
+          radius: ['20%', '40%'],
+<!--          avoidLabelOverlap: false,-->
+          label:{
+				formatter:function(arg){
+				    return arg.name + " \n建档" +arg.value + "人\n" + arg.percent + "%"
+				},
+		  },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: '10',
+              fontWeight: 'bold'
+            }
+          },
+          data: []
+        }
+      ]
+    };
+
+    var option5 = {
+      grid:{
+            top: "22%",
+			width : "80%",
+			height : "70%",
+			show : true,
+			containLabel: true
+	  },
+      tooltip:{
+			trigger:'item',//触发类型，根据里面的物件触发
+			triggerOn:'mousemove',  //点击  ,还有mousemove
+			// formatter:'{b}:{c}'
+			formatter:function(arg){
+				// console.log(arg)
+				return arg.name + ' 补贴：' + arg.data.toFixed(2) + '元'
+			}
+	  },
+      xAxis: [
+        {
+          type: 'category',
+          data: [],
+          axisTick: {
+            alignWithLabel: true
+          },
+          axisLabel: {
+                interval:0,//代表显示所有x轴标签显示
+                rotate:45,
+            }
+        }
+      ],
+      yAxis: [
+        {
+          type: 'value',
+          scale:true,
+          name: "农业补贴（元）",
+        }
+      ],
+      series: [
+        {
+          name: 'Direct',
+          type: 'bar',
+          barWidth: '60%',
+          data: [],
+        }
+      ]
+    };
+
+<!--	setInterval(function () {-->
+		//获取数据
+		//ajax轮询获取
+		$.ajax({
+			type:"GET",
+			url:"/area_show1/",
+			dataType:"json",
+			success:function(data){
+			    var x_data = []
+			    var y_data = []
+			    var data3 = []
+                for (let i in Object.keys(data)) {
+                    var item = {}
+                    x_data.push(Object.keys(data)[i]); //属性
+                    y_data.push(Object.values(data)[i]);
+                    item["name"] = Object.keys(data)[i]
+                    item["value"] = Object.values(data)[i]
+                    data3.push(item);
+                }
+                option1.xAxis.data = x_data
+                option1.series[0].data = y_data
+                option3.series[0].data = data3
+                myChart1.setOption(option1);
+                myChart3.setOption(option3);
+            },
+		    error:function(){
+			    alert("获取数据异常");
+		    }
+	    });
+
+	    $.ajax({
+			type:"GET",
+			url:"/area_show2/",
+			dataType:"json",
+			success:function(data){
+			    var x_data = []
+			    var y_data = []
+			    var y_data1 = []
+			    var y_data2 = []
+                for (let i in Object.keys(data)) {
+                    x_data.push(Object.keys(data)[i]); //属性
+                    y_data.push(Object.values(data)[i]);
+                }
+                for (let i in y_data){
+                    y_data1.push(y_data[i][0])
+                    y_data2.push(y_data[i][1])
+                }
+                option2.xAxis.data = x_data
+<!--                option2.series[0].data = y_data2-->
+                option2.series[0].data = y_data1
+                myChart2.setOption(option2);
+            },
+		    error:function(){
+			    console.log("获取数据异常");
+		    }
+	    });
+
+	    $.ajax({
+			type:"GET",
+			url:"/area_show3/",
+			dataType:"json",
+			success:function(data){
+			    $("#tr1 td:eq(0)").html(data["total"])
+			    $("#tr1 td:eq(1)").html(data["now_data"])
+			    $("#tr1 td:eq(2)").html(Object.values(data["join_area"])[0])
+			    $("#tr2 td:eq(2)").html(Object.keys(data["join_area"])[0]+"(区域最高)")
+            },
+		    error:function(){
+			    alert("获取数据异常");
+		    }
+	    });
+
+	    $.ajax({
+			type:"GET",
+			url:"/area_show4/",
+			dataType:"json",
+			success:function(data){
+			    data4 = []
+			    for (let i in Object.keys(data)) {
+			        dicts = {}
+			        dicts["value"] = Object.values(data)[i]
+			        dicts["name"] = Object.keys(data)[i]
+                    data4.push(dicts);
+                }
+                option4.series[0].data = data4
+                myChart4.setOption(option4);
+            },
+		    error:function(){
+			    alert("获取数据异常");
+		    }
+	    });
+
+	    $.ajax({
+			type:"GET",
+			url:"/area_show5/",
+			dataType:"json",
+			success:function(data){
+                html_str = ""
+			    for (let i in Object.keys(data)) {
+			        province = Object.keys(data)[i]
+			        name = Object.values(data)[i][0]
+			        join_time = Object.values(data)[i][1]
+			        html_str += '<li><span class="class1">'+province+'</span><span class="class2">'+
+			            name+'  于 '+join_time+' 建档</span></li>'
+                }
+                $("#run_ul").append(html_str+html_str);
+            },
+		    error:function(){
+			    alert("获取数据异常");
+		    }
+	    });
+
+	    $.ajax({
+			type:"GET",
+			url:"/area_show6/",
+			dataType:"json",
+			success:function(data){
+<!--			    console.log(data)-->
+			    x_data = []
+			    y_data = []
+			    for (let i in Object.keys(data)) {
+			        x_data.push(Object.keys(data)[i])
+			        y_data.push(Object.values(data)[i])
+                }
+                option5.xAxis[0].data = x_data
+                option5.series[0].data = y_data
+                console.log(option5.xAxis.data)
+                myChart5.setOption(option5);
+            },
+		    error:function(){
+			    alert("获取数据异常");
+		    }
+	    });
+
+<!--	}, 1000);-->
+</script>
+{% endblock %}
+</body>
+</html>
