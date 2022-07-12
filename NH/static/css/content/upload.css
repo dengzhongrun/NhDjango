@@ -1,0 +1,889 @@
+﻿/*上传控件*/
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+.webuploader-pick {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: #00b7ee;
+    padding: 5px 15px;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.webuploader-pick-hover {
+    background: #00a2d4;
+}
+.webuploader-dnd {
+    width: 400px;
+    height: 400px;
+    border: 3px solid #ddd;
+}
+.webuploader-dnd-over {
+    border-style: dashed;
+}
+.webuploader-container {
+    position: relative;
+}
+.jumbotron {
+    color: #fff;
+    text-shadow: 1px 1px 1px #3b3262;
+    margin-bottom: 0;
+}
+/*单图片上传*/
+.upload-single > .clearfix > div {
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 0;
+}
+.upload-single .upload-photo-area,
+.upload-single .upload-file-area {
+    padding: 5px;
+    min-height: 166px;
+    border: 3px dashed #e6e6e6;
+    color: #ccc;
+    text-align: center;
+}
+.upload-other-ways {
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    opacity: .7;
+}
+.upload-pick {
+    margin-top: 100px;
+}
+.upload-single .upload-pick {
+    margin: 150px 0 0 0;
+}
+.upload-single .webuploader-pick {
+    padding: 5px 15px;
+    width: 100%;
+    height: 36px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 26px;
+}
+.upload-single .upload-pick:hover .webuploader-pick,
+.upload-single .webuploader-pick-hover {
+    background-color: #3276b1;
+}
+.upload-single .upload-pick input {
+    padding: 0 24px;
+    width: 100%;
+    height: 36px;
+}
+.upload-single .upload-pick label {
+    display: none;
+}
+.upload-single .upload-placeholder p {
+    padding-bottom: 15px;
+    text-align: center;
+}
+.upload-photo-area ul,
+.upload-file-area ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    min-height: 120px;
+}
+.upload-photo-area .photolist li {
+    display: table-cell;
+}
+.upload-photo-area .photolist img {
+    max-width: 170px;
+    max-height: 170px;
+}
+.upload-photo-area .photolist li,
+.upload-single .upload-photo-area li {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    padding: 0;
+    width: 99%;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+.upload-single .upload-photo-area li,
+.upload-single .upload-file-area li {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    height: 170px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+.upload-photo-area .photolist li p {
+    padding: 0;
+}
+.upload-photo-area .photolist li p.title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 5px;
+    width: 200px;
+    background: rgba(0, 0, 0, .5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#80000000') \0;
+    color: #d2d2d2;
+    color: rgba(255, 255, 255, .8);
+    text-align: left;
+    text-indent: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#dataX {
+    width: 100%;
+    height: 30px;
+    line-height: 0px;
+}
+#dataY {
+    width: 100%;
+    height: 30px;
+    line-height: 0px;
+}
+#dataWidth {
+    width: 100%;
+    height: 30px;
+    line-height: 0px;
+}
+#dataHeight {
+    width: 100%;
+    height: 30px;
+    line-height: 0px;
+}
+/*单文件上传*/
+.upload-single .upload-file-area li {
+    cursor: default;
+}
+.upload-single .upload-file-area .name {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 20px auto 0;
+    text-align: center;
+    line-height: 24px;
+    width: 55%;
+    color: #000;
+    background: url(../img/filestype.png) 20px 10px no-repeat;
+}
+.upload-single .upload-file-area li .name.rar {
+    background-position: 20px -718px;
+}
+.upload-single .upload-file-area li .name.pic {
+    background-position: 20px -158px;
+}
+.upload-single .upload-file-area li .name.word {
+    background-position: 20px -524px;
+}
+.upload-single .upload-file-area li .name.video {
+    background-position: 20px 0;
+}
+.upload-single .upload-file-area li .name.music {
+    background-position: 20px -338px;
+}
+.upload-single .upload-file-area li .name.files {
+    background-position: 20px -524px;
+}
+.upload-single .upload-file-area .control {
+    display: none;
+    font-size: 20px;
+    line-height: 24px;
+    padding-left: 5px;
+}
+.upload-single .upload-file-area li:hover .control {
+    display: block;
+}
+.upload-single .upload-file-area .size {
+    line-height: 24px;
+    font-size: 14px;
+    padding-right: 5px;
+}
+/*单图片和单文件的操作图标*/
+.upload-photo-area .photolist .file-panel,
+.upload-file-area .filelist .file-panel {
+    position: absolute;
+    top: 135px;
+    left: 0;
+    z-index: 300;
+    display: none;
+    overflow: hidden;
+    padding: 5px 0px;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    background: rgba(66, 139, 202, .8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CC428bca', endColorstr='#CC428bca') \0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 24px;
+    cursor: default;
+}
+.upload-photo-area .photolist li:hover .file-panel,
+.upload-file-area .filelist li:hover .file-panel {
+    display: block;
+}
+.upload-photo-area .photolist .file-panel i,
+.upload-file-area .filelist .file-panel i {
+    padding: 0 6px;
+    width: 28px;
+    height: 24px;
+    color: #fff;
+    text-align: center;
+    line-height: 24px;
+    cursor: pointer;
+}
+/*上传成功提示*/
+.upload-single .upload-success,
+.upload-multi .upload-success {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 300;
+    display: block;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: #00c1f3;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    background: url(../img/icon-upload.png) 0 0 no-repeat;
+}
+.upload-single .upload-success i,
+.upload-multi .upload-success i {
+    display: none;
+}
+/*上传进度条*/
+.upload-single .progress,
+.upload-multi .progress {
+    position: absolute;
+    top: 116px;
+    z-index: 301;
+    margin-bottom: 0;
+    width: 100%;
+    height: 34px;
+    border-radius: 0;
+    background: rgba(0, 0, 0, .2);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    line-height: 34px;
+}
+.upload-multi .progress span.percentage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 138, 0, .8);
+}
+.upload-multi .progress span.text {
+    position: relative;
+    z-index: 10;
+}
+/*确定上传栏*/
+.upload-multi .status-bar {
+    margin-top: 15px;
+    padding: 15px 20px 5px;
+    border-top: 1px solid rgba(218, 218, 218, .7);
+}
+.upload-multi .status-bar .info,
+.upload-multi .status-bar .edit {
+    padding-top: 5px;
+    color: #ccc;
+    text-align: left;
+    font-size: 12px;
+    line-height: 20px;
+}
+.upload-multi .status-bar .info span {
+    padding: 0 3px;
+    color: #666;
+    font-weight: bold;
+}
+/*多文件上传（图片）*/
+.upload-multi .upload-placeholder {
+    padding-bottom: 30px;
+}
+.upload-multi .upload-photo-area,
+.upload-multi .upload-file-area {
+    padding: 10px;
+    border: 3px dashed #e6e6e6;
+    color: #ccc;
+    text-align: center;
+}
+.upload-multi .upload-pick {
+    padding-top: 150px;
+    margin-top: 0;
+    background: url(../img/upload-images-bg.png) center 60px no-repeat;
+}
+.upload-multi .webuploader-pick {
+    padding: 10px 25px;
+    width: 100%;
+    height: 46px;
+    line-height: 26px;
+    font-size: 16px;
+}
+.upload-multi .upload-pick input {
+    padding: 0 40px;
+    width: 100%;
+    height: 46px;
+}
+.upload-multi .photolist li {
+    height: 175px;
+    border: none;
+    width: 47%;
+    margin: 5px 0 0 8px;
+    text-align: left;
+}
+.upload-multi .photolist .file-panel {
+    top: 0px;
+    left: 0px;
+    padding: 4px 0 4px 5px;
+    width: 170px;
+    font-size: 16px;
+}
+.upload-multi .photolist .file-panel a {
+    float: left;
+}
+.upload-multi .photolist .file-panel i {
+    padding: 0;
+    width: 20px;
+}
+.upload-multi .photolist .title {
+    position: absolute;
+    top: 114px;
+    left: 4px;
+    z-index: 299;
+    padding: 0;
+    width: 110px;
+    height: 24px;
+    border: none;
+    background: transparent;
+}
+.upload-multi .photolist .title input {
+    margin: 0;
+    padding: 0 5px;
+    width: 110px;
+    height: 24px;
+    outline: none;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #666;
+    -o-transition: border-color ease-in-out 0.55s, box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out 0.55s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out 0.55s, box-shadow ease-in-out .15s;
+}
+.upload-multi .photolist li:hover .title input {
+    border: 1px solid rgba(8, 139, 207, .3);
+    background: rgba(255, 255, 255, .55);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .075);
+    color: #666;
+}
+.upload-multi .upload-photo-area img {
+    cursor: move;
+}
+.upload-multi .upload-photo-area .upload-success {
+    top: 7px;
+    right: 7px;
+    font-size: 12px;
+}
+.upload-multi .upload-photo-area .progress {
+    top: auto;
+    bottom: 0;
+    padding: 0;
+    width: 100%;
+    height: 24px;
+    border: none;
+    line-height: 24px;
+}
+/*多文件上传（文件）*/
+.upload-multi .upload-file-area li {
+    display: block;
+    position: relative;
+    height: 36px;
+    line-height: 36px;
+    background: #fff;
+}
+.upload-multi .upload-file-area li:nth-child(2n + 1) {
+    background: rgba(66, 139, 202, .05);
+}
+.upload-multi .upload-file-area li:hover {
+    background: #f5f9fc;
+}
+.upload-multi .upload-file-area .file-message > div {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.upload-multi .upload-file-area li .size,
+.upload-multi .upload-file-area li .stutus,
+.upload-multi .upload-file-area li .control {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.upload-multi .upload-file-area li .name {
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 60px;
+    text-align: left;
+    color: #000;
+    background: url(../img/filestype-small.png) 40px 10px no-repeat;
+}
+.upload-multi .upload-file-area li .name.rar {
+    background-position: 40px -92px;
+}
+.upload-multi .upload-file-area li .name.pic {
+    background-position: 40px -26px;
+}
+.upload-multi .upload-file-area li .name.word {
+    background-position: 40px -125px;
+}
+.upload-multi .upload-file-area li .name.video {
+    background-position: 40px 10px;
+}
+.upload-multi .upload-file-area li .name.music {
+    background-position: 40px -60px;
+}
+.upload-multi .upload-file-area li .name.files {
+    background-position: 40px -125px;
+}
+.upload-multi .upload-file-area li .upload-success {
+    top: 8px;
+    left: 8px;
+    padding: 0;
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    line-height: 16px;
+}
+.upload-multi .upload-file-area li .control a {
+    margin: 0 5px;
+    font-size: 14px;
+}
+.upload-multi .upload-file-area li .progress {
+    position: relative;
+    top: 0;
+    margin: 8px 0 0;
+    height: 20px;
+    width: auto;
+    line-height: 20px;
+    z-index: 301;
+    background: rgba(0, 0, 0, .2);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+/*上传弹出窗口样式*/
+.add-photo-info label {
+    padding-right: 0;
+    color: #333;
+    text-align: right;
+    font-weight: normal;
+}
+/*弹出窗口样式调整(添加外链和修改信息)*/
+.upload-single .upload-file-area .modal-content,
+.upload-single .upload-photo-area .modal-content,
+.upload-multi .upload-file-area .modal-content,
+.upload-multi .upload-photo-area .modal-content {
+    color: #000;
+    text-align: left;
+}
+.upload-single .upload-file-area .form-group label,
+.upload-single .upload-photo-area .form-group label,
+.upload-multi .upload-file-area .form-group label,
+.upload-multi .upload-photo-area .form-group label {
+    padding: 4px 0 0;
+    color: #999;
+    text-align: right;
+    font-weight: normal;
+    line-height: 24px;
+}
+.upload-single .upload-file-area .modal-footer,
+.upload-single .upload-photo-area .modal-footer,
+.upload-multi .upload-file-area .modal-footer,
+.upload-multi .upload-photo-area .modal-footer {
+    margin-top: 0;
+}
+/*拖拽显示边框样式*/
+.upload-single.webuploader-dnd-over,
+.upload-multi.webuploader-dnd-over {
+    border: none;
+}
+.upload-single.webuploader-dnd-over .upload-photo-area,
+.upload-single.webuploader-dnd-over .upload-file-area,
+.upload-multi.webuploader-dnd-over .upload-photo-area,
+.upload-multi.webuploader-dnd-over .upload-file-area {
+    border-color: #666;
+}
+/*内部拖拽边框样式*/
+.upload-multi .photolist li.ui-sortable-helper {
+    background: #fff;
+    border: 1px dashed #428bca;
+}
+/*上传input隐藏*/
+.upload-single .webuploader-element-invisible,
+.upload-multi .webuploader-element-invisible {
+    display: none;
+}
+/*上传图片裁剪 image-cropper*/
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #000;
+}
+.image-cropper-box .modal-dialog {
+    width: 800px;
+}
+.image-cropper-box .modal-body {
+    padding: 15px 25px;
+}
+.image-cropper-left {
+    width: 550px;
+}
+.docs-toolbar {
+    margin-top: 10px;
+    text-align: center;
+}
+.image-cropper-right {
+    width: 180px;
+}
+.image-cropper-right h3 {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: bold;
+    padding: 0 0 5px;
+    margin: 0;
+}
+.img-container,
+.img-preview {
+    background-color: #f7f7f7;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+}
+.img-container {
+    box-shadow: inset 0 0 5px #eee;
+    border: 1px solid #eee;
+    height: 360px;
+}
+.img-container > img {
+    max-width: 100%;
+    max-height: inherit;
+}
+.img-preview {
+    margin-bottom: 5px;
+    border: 1px solid #eee;
+    height: 118px;
+    width: 178px;
+}
+.docs-data > .input-group {
+    padding-bottom: 7px;
+    overflow: hidden;
+}
+.docs-data > .input-group .input-group-addon {
+    height: 24px;
+    line-height: 24px;
+    border-radius: 4px 0px 0px 4px;
+    border-right: none;
+    float: left;
+    padding: 0 8px;
+    text-align: center;
+}
+.docs-data > .input-group span.input-group-addon {
+    border-radius: 0px 4px 4px 0px;
+    border-right: 1px solid #ccc;
+    border-left: none;
+}
+#FormBox .modal-dialog .modal-body .form-control {
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    width: 108px;
+    float: left;
+    padding: 0px 5px;
+    border: 1px solid #ccc;
+    margin: 0px;
+}
+#FormBox .modal-dialog .modal-body #dataWidth.form-control,
+#FormBox .modal-dialog .modal-body #dataHeight.form-control {
+    width: 89px;
+}
+.lock-ratio {
+    padding: 5px 0;
+}
+.lock-ratio span {
+    padding-left: 5px;
+}
+.docs-options {
+    margin-top: 7px;
+    padding-top: 5px;
+    border-top: 1px solid #ccc;
+}
+.docs-options .row {
+    padding: 4px 0;
+}
+.docs-options .row > div {
+    padding: 0;
+    font-size: 12px;
+}
+.docs-options .row .control-label {
+    padding-right: 8px;
+    color: #666;
+}
+/*文件上传后预览*/
+/*图片上传后预览列表显示 multiuploadimages-list*/
+.multiuploadimages-list figure figcaption {
+    color: #fff;
+    text-transform: uppercase;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.multiuploadimages-list figure figcaption,
+.multiuploadimages-list figure a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.multiuploadimages-list figure a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+}
+figure.smooth-effect {
+    position: relative;
+    z-index: 1;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 1px;
+    width: 120px;
+    height: 120px;
+    background: #3085a3;
+    text-align: center;
+    cursor: pointer;
+}
+figure.smooth-effect img {
+    width: -webkit-calc(100% + 50px);
+    width: calc(100% + 50px);
+    opacity: 0.7;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(-40px, 0, 0);
+    transform: translate3d(-40px, 0, 0);
+}
+figure.smooth-effect figcaption {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+    text-align: left;
+    padding: 40px 10px 10px;
+}
+figure.smooth-effect h2,
+figure.smooth-effect p {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+}
+figure.smooth-effect h2 {
+    margin: 0;
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    font-size: 14px;
+}
+figure.smooth-effect p {
+    font-size: 12px;
+    line-height: 18px;
+    height: 59px;
+    overflow: hidden;
+    color: #d2d2d2;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.35s;
+    transition: opacity 0.2s, transform 0.35s;
+}
+figure.smooth-effect:hover img,
+figure.smooth-effect:hover p {
+    opacity: 1;
+}
+figure.smooth-effect:hover img,
+figure.smooth-effect:hover h2,
+figure.smooth-effect:hover p {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+figure.smooth-effect:hover p {
+    -webkit-transition-delay: 0.05s;
+    transition-delay: 0.05s;
+    -webkit-transition-duration: 0.35s;
+    transition-duration: 0.35s;
+}
+/*.multiuploadimages-list*/
+.multiuploadimages-list ul {
+    padding: 0;
+    margin: 0;
+}
+.multiuploadimages-list li {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 128px;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, .6);
+    padding: 3px;
+    margin: 2px 4px 4px 2px;
+    list-style: none;
+    border: 1px solid transparent;
+    -o-transition: box-shadow ease-in-out 1s, border ease-in-out .5s;
+    -webkit-transition: box-shadow ease-in-out 1s, border ease-in-out .5s;
+    transition: box-shadow ease-in-out 1s, border ease-in-out .5s;
+}
+.multiuploadimages-list li:hover {
+    background: #e5f3fb;
+    border: 1px solid #70c0e7;
+    box-shadow: 0 0 3px rgba(35, 112, 158, .4);
+}
+.multiuploadimages-list .pic {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+.multiuploadimages-list .pic span {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    vertical-align: bottom;
+    display: table-cell;
+}
+.multiuploadimages-list .pic img {
+    width: 120px;
+    height: 120px;
+}
+.multiuploadimages-list li h2 {
+    font-size: 12px;
+    text-align: center;
+    color: #666;
+    padding: 4px 0;
+    margin: 0;
+    line-height: 16px;
+}
+.multiuploadimages-list li a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/*文件上传后预览列表显示 multiuploadfiles-list*/
+.multiuploadfiles-list ul {
+    padding: 0;
+    margin: 0;
+}
+.multiuploadfiles-list li {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 45px;
+    background: url(../img/filestype-small.png) 15px 10px no-repeat #fff;
+}
+.multiuploadfiles-list li:nth-child(2n) {
+    background-color: #f9f9f9;
+}
+.multiuploadfiles-list li:hover {
+    background-color: #e5f3fb;
+}
+.multiuploadfiles-list li a {
+    padding: 0 20px 0 0;
+}
+.multiuploadfiles-list li span {
+    color: #ccc;
+    font-weight: normal;
+    padding-right: 15px;
+}
+.multiuploadfiles-list li.rar {
+    background-position: 15px -92px;
+}
+.multiuploadfiles-list li.pic {
+    background-position: 15px -26px;
+}
+.multiuploadfiles-list li.word {
+    background-position: 15px -125px;
+}
+.multiuploadfiles-list li.video {
+    background-position: 15px 10px;
+}
+.multiuploadfiles-list li.music {
+    background-position: 15px -60px;
+}
+.multiuploadfiles-list li.files {
+    background-position: 15px -125px;
+}
+/* mobile-file-upload-hd */
+.mobile-file-upload-box {
+    font-family: 'Helvetica Neue', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.mobile-file-upload-hd {
+    height: 45px;
+    position: relative;
+    overflow: hidden;
+}
+.mobile-file-upload-hd .logo-img {
+    position: absolute;
+    left: 10px;
+    top: 16px;
+    width: 90px;
+}
+.mobile-file-upload-hd .logo-img img {
+    max-height: 30px;
+    width: 100%;
+}
+.mobile-file-upload-hd .title {
+    text-align: center;
+    font-size: 16px;
+    height: 45px;
+}
+.mobile-file-upload-bd {
+    padding: 15px;
+    ;
+}
+.mobile-file-upload-bd .tips {
+    margin: 15px 0 0 0;
+    color: #999;
+}
+.mobile-file-upload-bd .upload-photo-area {
+    padding: 5px 3px;
+}
+.mobile-file-upload-bd .upload-photo-area p {
+    margin: 0px;
+}
+.mobile-file-upload-bd .upload-photo-area .progress {
+    width: 100%;
+}
+.mobile-file-upload-bd .upload-photo-area img {
+    width: auto;
+    height: auto;
+}
+.error {
+    width: 100%;
+    text-align: center;
+    margin-top: 20%;
+}

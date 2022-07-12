@@ -1,0 +1,393 @@
+﻿@charset "utf-8";
+h1, .h1, h2, .h2, h3, .h3{margin:0;}
+.mainNav .li1 .h1{height:118px;}
+.mainNav .li1 a {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.mainNav .li2 a{line-height:38px;}
+
+#sideMenu li a {
+    background-image: url(../../Interaction/img/interaction-icons.png);
+    background-position: 220px -3264px;
+}
+.tip{
+        height: 40px;
+    line-height: 40px;
+    color: #8b3936;
+    font-size: 12px;
+}
+
+/* 信箱首页 ----------------------------------------------------- */
+.ConsultationStatistics {
+    float: right;
+}
+.ConsultationStatistics label {
+    margin-right: 20px;
+    color: #888;
+}
+/* boxA-petition */
+.boxA-petition {
+    margin-bottom: 20px;
+}
+.boxA-petition .hd h3 {
+    position: relative;
+    float: left;
+    line-height: 37px;
+}
+.boxA-petition .hd ul {
+    float: left;
+    position: relative;
+    margin-right: 6px;
+}
+.boxA-petition .hd .write,
+.boxA-petition .hd .select,
+.mainBox .mHd .write,
+.mainBox .mHd .select {
+    height: 28px;
+    line-height: 28px;
+    overflow: hidden;
+    color: #fff;
+    float: right;
+    background: #79b2e2;
+    margin-top: 7px;
+    margin-left: 5px;
+}
+.boxA-petition .hd .write a,
+.boxA-petition .hd .select a,
+.mainBox .mHd .write a,
+.mainBox .mHd .select a {
+    display: block;
+    float: left;
+    padding: 0px 20px 0px 12px;
+    color: #fff;
+}
+.boxA-petition .hd .write a i,
+.boxA-petition .hd .select a i,
+.mainBox .mHd .write a i,
+.mainBox .mHd .select a i {
+    width: 20px;
+    height: 28px;
+    float: left;
+    margin-right: 5px;
+    background: url(../../interaction/img/interaction-icons.png) 0px -999px no-repeat;
+    transition: all .5s;
+}
+.boxA-petition .hd .write a:hover i,
+.boxA-petition .hd .select a:hover i,
+.mainBox .mHd .write a:hover i,
+.mainBox .mHd .select a:hover i {
+    transform: rotateY(180deg);
+}
+.mainBox .mHd .write,
+.mainBox .mHd .select {
+    margin-top: 11px;
+}
+.boxA-petition .hd .select,
+.mainBox .mHd .select {
+    background: #e6954e
+}
+.boxA-petition .hd .select a i,
+.mainBox .mHd .select a i {
+    background-position: 0px -1123px;
+}
+.boxA-petition .hd .notice,
+.boxA-petition .hd .myLetter {
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    float: left;
+    margin-top: 5px;
+}
+.boxA-petition .hd .notice a,
+.boxA-petition .hd .myLetter a {
+    float: left;
+    padding: 0px 10px 0px 12px;
+}
+.boxA-petition .hd .notice a i,
+.boxA-petition .hd .myLetter a i {
+    width: 20px;
+    height: 30px;
+    float: left;
+    margin-right: 5px;
+    background: url(../../interaction/img/interaction-icons.png) 4px -2464px no-repeat;
+}
+.boxA-petition .hd .myLetter a i {
+    background-position: 4px -2639px;
+}
+.boxA-petition .bd {
+    overflow: hidden;
+    clear: both;
+    padding: 1px 0px 0px;
+}
+/* 信件列表页 ----------------------------------------------------- */
+.letterListPage .mHd .list {
+    padding: 0 0 0 20px;
+}
+.letterListPage .mHd .list a {
+    font-size: 16px;
+}
+.letterSearch .searchBox {
+    float: right;
+    height: 60px;
+    width: 545px;
+}
+.letterSearch .searchBox .hd {
+    height: 36px;
+    line-height: 36px;
+    padding: 12px 0 12px 59px;
+    float: left;
+    font-size: 16px;
+    color: #333;
+    background: url(/Content/Main/PetitionLetter/img/Petition-icons.png) 19px -151px no-repeat;
+}
+.letterSearch .searchBox .bd {
+    height: 36px;
+    width: 395px;
+    float: right;
+    padding: 12px 0px 0px 0px;
+}
+.letterSearch .searchBox .keyword {
+    width: 200px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    padding: 5px 0px 5px 15px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-right: none;
+    outline: none;
+    float: left;
+}
+.letterSearch .searchBox .searchsubmit {
+    width: 84px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background: #8b3936;
+    border: none;
+    float: left;
+    font-weight: bold;
+}
+.letterSearch {
+    overflow: hidden;
+    margin-bottom: 10px;
+    width: 530px;
+}
+.detailTable .preDiv {
+    width: auto;
+}
+.letterstatusbold {
+    font-weight: bold;
+}
+/* 写信页 ----------------------------------------------------- */
+#formBox{padding:20px;}
+
+.consult .mHd {
+    height: 52px;
+    line-height: 52px;
+    border-bottom: 1px #ddd solid;
+}
+
+.consult .mHd h3 {
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    color: #666;
+    padding-left: 10px;
+     line-height: 52px;
+}
+
+/* 写信须知 */
+.letterWritePage #xyBox {
+    background: url(../img/bgLetter.jpg) 50% 0px no-repeat #f2f2f2;
+    min-height: 500px;
+    padding: 50px 140px 80px 170px;
+}
+.letterWritePage #xyBox h3 {
+    font-size: 35px;
+    color: #8b3936;
+    text-align: center;
+    line-height: 52px;
+    margin-bottom: 40px;
+}
+.letterWritePage #xyBox .info {
+    font-size: 14px;
+    line-height: 28px;
+    height: 325px;
+    overflow-y: auto;
+}
+.letterWritePage #xyBox .info p {
+    padding: 6px 0px;
+}
+.letterWritePage #xyBox .center {
+    overflow: hidden;
+    height: 40px;
+    text-align: center;
+    padding-top: 50px;
+}
+.letterWritePage #xyBox .nextBtn {
+    background: #8b3936;
+    vertical-align: middle;
+    margin-right: 20px;
+    cursor: pointer;
+    border: none;
+    width: 166px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+}
+.letterWritePage #xyBox .prevBtn {
+    background: #d3d3d3;
+    vertical-align: middle;
+    border: none;
+    cursor: pointer;
+    width: 75px;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+/* 写信内容 */
+.onlineplForm .hd {
+    height: 40px;
+    border-bottom: 2px solid #12518a;
+}
+.onlineplForm .hd h3 {
+    width: 138px;
+    float: left;
+    *display: inline;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    background: #12518a;
+    color: #fff;
+    font-size: 16px;
+}
+.onlineplForm .hd .tips {
+    float: left;
+    *display: inline;
+    padding-left: 20px;
+    height: 40px;
+    line-height: 40px;
+    color: #12518a;
+    font-size: 12px;
+}
+.onlineplForm .bd {
+    padding: 30px 0px;
+}
+.onlineplForm .bottombt {
+    overflow: hidden;
+    height: 40px;
+    text-align: center;
+}
+.onlineplForm .bottombt .inputbutton {
+    background: #12518a;
+    vertical-align: middle;
+    margin-right: 20px;
+    cursor: pointer;
+    border: none;
+    width: 166px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 3px;
+}
+.onlineplForm .bottombt .restButton {
+    background: #d3d3d3;
+    vertical-align: middle;
+    border: none;
+    cursor: pointer;
+    width: 75px;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    border-radius: 3px;
+}
+.LetterInfoTable {
+    width: 100%;
+}
+.LetterInfoTable td {
+    line-height: 24px;
+    padding: 8px 5px;
+    vertical-align: top;
+}
+.LetterInfoTable td .field-validation-error {
+    display: block;
+    color: #ff0000;
+}
+.LetterInfoTable td.tdlab {
+    width: 200px;
+    text-align: right;
+}
+.LetterInfoTable td input[type="text"] {
+    width: 80%;
+    border: #ccc solid 1px;
+    height: 20px;
+    overflow: hidden;
+    padding: 5px 0px 5px 5px;
+}
+.LetterInfoTable td textarea[name=Content] {
+    width: 669px;
+}
+.LetterInfoTable td select {
+    height: 24px;
+    line-height: 24px;
+}
+.LetterInfoTable .validationcode {
+    position: initial;
+}
+/* 使用帮助 ----------------------------------------------------- */
+.letterHelpPage .help {
+    margin-top: 10px;
+}
+.letterHelpPage .help h3 {
+    font-size: 16px;
+    line-height: 2em;
+    padding-left: 10px;
+    font-weight: bold;
+    color: #0068B7;
+    border-bottom: #ddd 1px dotted;
+}
+.letterHelpPage .help .con {
+    font-size: 14px;
+    line-height: 1.8em;
+    padding: 5px 10px 15px;
+}
+
+
+.LetterInfoTable td input[type="text"] {
+    width: 80%;
+    border: #ccc solid 1px;
+    height: 30px;
+    overflow: hidden;
+    padding: 5px 0px 5px 5px;
+}
+.LetterInfoTable td input.form-control{width:55%;}
+
+.detailTable{width: 100%; margin: 0 auto;}
+.detailTable th,.detailTable .trTitle{background: #f3f3f3;}
+.detailTable td{border:1px #ddd solid;padding-left:12px;}
+.detailTable .tdName,.detailTable th{font-weight: bold;}
+.detailTable th{text-align: center;}
+
+.jgcx{float:left;margin-left:60px; font-size:14px;    
+     background: #8b2a27;
+    border-radius: 30px;
+    color: #fff;
+    height:30px;
+    line-height:30px;
+        padding: 0 15px;
+    margin-top:14px;
+}
+.jgcx a{color:#fff;}

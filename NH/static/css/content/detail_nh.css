@@ -1,0 +1,23 @@
+/*表格整体样式*/
+#nh_xx{
+    border:1px solid black ;
+    width: 750px ;
+    /* 让表格位于网页中间 */
+    margin: auto ;
+    /* 合并表格与单元格之间的边框，单元格与单元格之间的边框 */
+    border-collapse: collapse ;
+    margin-top: 20px ;
+}
+/*给标题文字设置大小*/
+#nh_xx caption{
+    padding-left:320px ;
+    margin-bottom:10px ;
+    font-size: 30px ;
+}
+/*单元格样式*/
+#nh_xx td{
+    border: 2px solid black ;
+/*单元格中文字到单元格边框的距离*/
+    padding: 13px ;
+    text-align: center ;
+}
