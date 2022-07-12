@@ -9,7 +9,6 @@ from django.http import HttpResponseRedirect
 from role.models import PersonInfo
 from role import models
 import hashlib
-from role import captchar
 from io import BytesIO
 import io
 from PIL import Image
@@ -54,7 +53,7 @@ def login_in(request):
                     return render(request, "man_index.html")
                 # 业务人员
                 else:
-                    return render(request, "woker_index.html")
+                    return render(request, "user_index.html")
                     # return redirect(reverse("performance"))
             else:
                 return render(request,"login_in.html",{"error":"用户名或密码错误"})
@@ -93,48 +92,31 @@ def mes(request):
 # 绩效发布函数视图
 def performance(request):
     if request.method == 'POST':
-        # return redirect(reverse("index"))
-        recept_id = request.POST.get("recept_id")
+        # 获取登录人员的信息
+        people = PersonInfo.objects.get(name=request.session.get("uname"))
+        # people = PersonInfo.objects.get(name="赵占全")
+
         recept_staff = request.POST.get("recept_staff")
-        pub_staff = request.POST.get("pub_staff")
+        # pub_staff = request.POST.get("pub_staff")
         pub_time = now.strftime('%Y年%m月%d日'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
         completion_time =request.POST.get("completion_time")
         volume = request.POST.get("volume")
         turnover = request.POST.get("turnover")
         task_description = request.POST.get("task_description")
         performance = PerformanceTask()
-        person = PersonInfo()
-        performance.recept_id = "6"
-        performance.recept_staff = "6"
-        performance.pub_time = "20-52-6"
-        performance.pub_staff = "6"
-        performance.completion_time = "2022-7-11"
-        performance.volume = 4
-        performance.turnover = 5
-        performance.task_description = "huh"
-        performance.user_id = "1998956"
+        performance.recept_id = people.employee_number
+        performance.recept_staff = recept_staff
+        performance.pub_time = pub_time
+        performance.pub_staff = request.session['uname']
+        performance.completion_time = completion_time
+        performance.volume = volume
+        performance.turnover = turnover
+        performance.task_description = task_description
+        performance.user_id = people.id_num
+        # 保存数据
         performance.save()
-
-        # recept_id = request.POST.get("recept_id")
-        # recept_staff = request.POST.get("recept_staff")
-        # pub_staff = request.POST.get("pub_staff")
-        # pub_time = now.strftime('%Y年%m月%d日'.encode('unicode-escape').decode()).encode().decode('unicode-escape')
-        # completion_time =request.POST.get("completion_time")
-        # volume = request.POST.get("volume")
-        # turnover = request.POST.get("turnover")
-        # task_description = request.POST.get("task_description")
-        # performance = PerformanceTask()
-        # person = PersonInfo()
-        # performance.recept_id = recept_id
-        # performance.recept_staff = recept_staff
-        # performance.pub_time = pub_time
-        # performance.pub_staff = pub_staff
-        # performance.completion_time = completion_time
-        # performance.volume = volume
-        # performance.turnover = turnover
-        # performance.task_description = task_description
-        # performance.user_id = person.id_num
-        # performance.save()
+        # 保存成功后还是返回发布绩效页面
+        return redirect(reverse("performance"))
     return redirect(reverse("login_mess"))
 
 

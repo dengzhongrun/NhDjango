@@ -25,6 +25,7 @@ urlpatterns = [
     path('login_in',views.login_in,name="login"),
     path('sign_mess',views.mes,name="login_mess"),
     path('index',TemplateView.as_view(template_name="index.html"),name="index"),
-    path(r'performance/',views.performance,name="performance"),
+    path('performance/',TemplateView.as_view(template_name="performance.html"),name="performance"),
+    path('per/',views.performance,name="per"),
     path('task1' ,views.performance,name="task"),
 ]

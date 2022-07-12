@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'captcha',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            # "init_command": "SET foreign_key_checks = 0;",
         },
     },
 ]
@@ -80,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'nh',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': '200124',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -147,6 +149,20 @@ DATETIME_FORMAT = 'Y-m-d H:i:s'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+
+# AUTHENTICATION_BACKENDS=[
+#     'django.contrib.auth.backends.ModelBackend',
+#     'user.backends.AuthorBackend',
+# ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # AUTH_USER_MODEL="nh.User"  #表示哪张表继承了auth_user表（在给auth_user添加字段用到）
+# 使django 的检测用户的模块不检测是否激活，被忘了自己检测
+
+#超级用户自定义认证后端
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
+APPEND_SLASH = False
+
+
+
