@@ -1,0 +1,180 @@
+{% extends 'search.html' %}
+{% load static %}
+{% block js %}
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <script src="../static/js/jquery.json.js"></script>
+
+{% endblock %}
+{% block css %}
+    <link href="{% static '/css/content/detail_nh.css' %}" rel="stylesheet"/>
+
+    <link href="{% static '/css/content/default.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static '/css/content/page.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block a_link %}
+<li><a href="#"  onclick="javascript:history.go(-1);">返回</a></li>
+{% endblock a_link %}
+{% block content_nh %}
+<style>
+.xx_td{
+    color:rgb(100,100,100);
+}
+</style>
+<div style="height:480px;overflow: scroll;">
+    <table id="nh_xx">
+        <caption align="center">农户信息</caption>
+        <tbody>
+        {% for data in detail_data %}
+            <tr>
+                <td width="10%" rowspan="5">基本信息</td>
+                <td width="10%" class="nh_td">姓名</td>
+                <td width="10%" id="name" class="xx_td">{{ data.name }}</td>
+                <td width="10%" class="nh_td">性别</td>
+                <td width="10%" id="sex" class="xx_td">{{ data.sex }}</td>
+                <td width="10%" class="nh_td">政治面貌</td>
+                <td width="10%" id="political_landscape" class="xx_td">{{ data.political_landscape }}</td>
+            </tr>
+            <tr>
+                <td class="nh_td">联系电话</td>
+                <td colspan="2" id="phone_number" class="xx_td">{{ data.phone_number }}</td>
+                <td class="nh_td">证件号码</td>
+                <td colspan="2" id="id_number" class="xx_td">{{ data.id_number }}</td>
+            </tr>
+            <tr>
+                <td class="nh_td">是否常驻</td>
+                <td colspan="2" id="is_local" class="xx_td">{{ data.is_local }}</td>
+                <td class="nh_td">个人职业</td>
+                <td colspan="2" id="staff" class="xx_td">{{ data.staff }}</td>
+            </tr>
+            <tr>
+                <td class="nh_td">健康状况</td>
+                <td colspan="2" id="health" class="xx_td">{{ data.health }}</td>
+                <td class="nh_td">婚姻状况</td>
+                <td colspan="2" id="marriage" class="xx_td">{{ data.marriage }}</td>
+            </tr>
+            <tr>
+                <td class="nh_td">文化程度</td>
+                <td colspan="2" id="culture" class="xx_td">{{ data.culture }}</td>
+                <td class="nh_td">所属区域</td>
+                <td colspan="2" id="area" class="xx_td">{{ data.area }}</td>
+            </tr>
+            <tr>
+                <td rowspan="" id="len_relation">家庭信息</td>
+                <td class="nh_td">与户主关系</td>
+                <td class="nh_td">姓名</td>
+                <td colspan="2" class="nh_td">身份证号码</td>
+                <td colspan="2" class="nh_td">联系电话</td>
+            </tr>
+        {% for p in relation_data %}
+            <tr>
+                <td id="relation" class="xx_td">{{ p.relation }}</td>
+                <td id="name1" class="xx_td">{{ p.name }}</td>
+                <td colspan="2" id="id_num" class="xx_td">{{ p.id_num }}</td>
+                <td colspan="2" id="phone_number1" class="xx_td">{{ p.phone_number }}</td>
+            </tr>
+        {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td rowspan="2">家庭收支信息</td>
+                <td class="nh_td">劳动人口</td>
+                <td colspan="2" id="labor_num" class="xx_td">{{ data.labor_num }}</td>
+                <td class="nh_td">供养人数</td>
+                <td colspan="2" id="provide_num" class="xx_td">{{ data.provide_num }}</td>
+            </tr>
+            <tr>
+                <td class="nh_td">家庭收入(元)</td>
+                <td colspan="2" id="family_input" class="xx_td">{{ data.family_input }}</td>
+                <td class="nh_td">家庭支出(元)</td>
+                <td colspan="2" id="family_spending" class="xx_td">{{ data.family_spending }}</td>
+            </tr>
+            <tr>
+                <td rowspan="3">资产负债情况</td>
+                <td class="nh_td">农房数量</td>
+                <td id="house_num" class="xx_td">{{ data.house_num }}</td>
+                <td class="nh_td">农房面积(㎡)</td>
+                <td id="house_area" class="xx_td">{{ data.house_area }}</td>
+                <td class="nh_td">农房价值</td>
+                <td id="house_value" class="xx_td">{{ data.house_value }}</td>
+            </tr>
+            <tr>
+                <td class="nh_td">汽车数量</td>
+                <td id="car_num" class="xx_td">{{ data.car_num }}</td>
+                <td class="nh_td">农业机械数量</td>
+                <td id="mech_num" class="xx_td">{{ data.mech_num }}</td>
+                <td class="nh_td">农用机械价值(元)</td>
+                <td id="mech_value" class="xx_td">{{ data.mech_value }}</td>
+            </tr>
+            <tr>
+                <td height="200px" class="nh_td">农用机械图片</td>
+                <td colspan="5" height="200px" id="mech_photo" class="xx_td">
+                    <img src="" style="width:450px;height:244px">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="4">经营信息</td>
+                <td class="nh_td">企业名称</td>
+                <td colspan="2" id="enterprise_name" class="xx_td">{{ data.enterprise_name|default_if_none:"" }}</td>
+                <td class="nh_td">生产经营周期(年)</td>
+                <td colspan="2" id="produce_cycle" class="xx_td">{{ data.produce_cycle|default_if_none:"" }}</td>
+            </tr>
+            <tr>
+                <td class="nh_td">养殖获奖</td>
+                <td colspan="5" id="winning_y" class="xx_td">{{ data.winning_y|default_if_none:"" }}</td>
+            </tr>
+            <tr>
+                <td height="200px" class="nh_td">获奖图片</td>
+                <td colspan="5" height="200px" id="winning_p">无</td>
+            </tr>
+            <tr>
+                <td class="nh_td">农业补贴</td>
+                <td colspan="5" id="agricultural_subsidies" class="xx_td">{{ data.agricultural_subsidies }}</td>
+            </tr>
+            <tr>
+                <td>建档信息</td>
+                <td class="nh_td">责任人</td>
+                <td colspan="2" id="responsible" class="xx_td">{{ data.responsible }}</td>
+                <td class="nh_td">建档时间</td>
+                <td colspan="2" id="join_time" class="xx_td">{{ data.join_time|date:'Y-m-d' }}</td>
+            </tr>
+            <tr>
+                <td>贷款授信</td>
+                <td class="nh_td">贷款金额(元)</td>
+                <td colspan="5" id="loanable" class="xx_td">{{ data.loanable }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            var d = {{ dict_data|safe }}
+            $("#is_local").html(d["is_local"])
+            if ($("#sex").text()==0){
+                $("#sex").html("男")
+            }else{
+                $("#sex").html("女")
+            }
+            if ($("#health").text()==0){
+                $("#health").html("良好")
+            }else{
+                $("#health").html("较差")
+            }
+            if ($("#marriage").text()==0){
+                $("#marriage").html("已婚")
+            }else{
+                $("#marriage").html("未婚")
+            }
+            var mech_photo = d["mech_photo"]
+            var img_src = `../static/images/personImge/${mech_photo}`
+            $("#mech_photo>img:first").attr("src", "../static/images/personImge/mech1.jpg")
+            $("#responsible").html(d["responsible"])
+            $("#len_relation").attr("rowspan",{{len_relation}}+2)
+
+        })
+    </script>
+{% endblock %}
