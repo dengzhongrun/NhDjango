@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 
 # 人员信息表
@@ -7,11 +7,13 @@ class PersonInfo(models.Model):
     types_dict_choice = [(0, "男"), (1, "女")]
     name = models.CharField(max_length=20, help_text=u'姓名', verbose_name='姓名')
     id_num = models.CharField(max_length=20, help_text=u'身份证号码', unique=True, verbose_name='身份证号码')
+    employee_number = models.CharField(max_length=20, unique=True, verbose_name='员工编号')
     age = models.IntegerField(help_text=u'年龄', verbose_name='年龄', )
     sex = models.IntegerField(choices=types_dict_choice, help_text=u'性别', verbose_name='性别')
     height = models.IntegerField(help_text=u'身高', verbose_name='身高(cm)', null=True)
-    email = models.EmailField(verbose_name='邮箱地址', null=True)
     weight = models.IntegerField(help_text=u'体重', verbose_name='体重(kg)', null=True)
+    passwd = models.CharField(max_length=20, verbose_name='密码')
+    email = models.EmailField(verbose_name='邮箱地址', null=True)
     # 教育背景
     edu_back = models.CharField(max_length=50, help_text=u'教育背景', verbose_name='教育背景')
     # 是否为管理员
@@ -19,7 +21,7 @@ class PersonInfo(models.Model):
     # 上司
     boss = models.CharField(max_length=20, help_text=u'上司', verbose_name='上司')
     # 特长与喜好
-    Hob_Tal = models.CharField(max_length=200,help_text=u'特长与喜好', verbose_name='特长与喜好', null=True)
+    Hob_Tal = models.CharField(max_length=200, help_text=u'特长与喜好', verbose_name='特长与喜好', null=True)
     photo = models.ImageField(help_text=u'照片', verbose_name='照片', null=True)
     phone_number = models.CharField(max_length=11, help_text=u'联系电话', verbose_name='联系电话')
     area = models.CharField(max_length=20, help_text=u'所属区域', verbose_name='所属区域')
@@ -27,7 +29,8 @@ class PersonInfo(models.Model):
     join_time = models.DateTimeField(auto_now_add=True, help_text=u'加入时间', verbose_name='加入时间', null=True)
     # 个人简介
     person_file = models.TextField(help_text=u'个人简介', verbose_name='个人简介')
-    user = models.ForeignKey(to=User, to_field="id", on_delete=models.CASCADE)
+    associated_user = models.CharField(max_length=20, help_text=u'关联用户', verbose_name='关联用户')
+    # user = models.ForeignKey(to=User, to_field="id", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ("join_time",)
@@ -69,6 +72,7 @@ class Areas(models.Model):
     regional_manager = models.CharField(max_length=20,verbose_name="区域经理")
     # 业务人员
     business_people = models.CharField(max_length=20,verbose_name="业务人员")
+    business_number = models.CharField(max_length=20, verbose_name='业务人员编号')
     # 成交数量
     volume = models.IntegerField(verbose_name="成交数量")
     # 成交金额
@@ -89,7 +93,7 @@ class HouseMainInfo(models.Model):
     types_marriage_choice = [(0, "已婚"), (1, "未婚")]
     name = models.CharField(max_length=20, verbose_name="户主姓名")
     # 身份证号码
-    id_number = models.CharField(max_length=20, unique=True, verbose_name="身份证号码", null=True)
+    id_number = models.CharField(max_length=20, verbose_name="身份证号码", null=True)
     sex = models.IntegerField(choices=types_dict_choice, help_text=u'性别', verbose_name='性别')
     phone_number = models.CharField(max_length=11, verbose_name="手机号码", null=True)
     # 是否常驻
@@ -99,13 +103,14 @@ class HouseMainInfo(models.Model):
     # 个人职业
     staff = models.CharField(max_length=20,verbose_name="个人职业")
     # 健康状况
-    health = models.IntegerField(choices=types_health_choice, help_text=u'健康状况', verbose_name='健康状况')
+    health = models.CharField(max_length=10, help_text=u'健康状况', verbose_name='健康状况')
     # 婚姻状况
-    marriage = models.IntegerField(choices=types_marriage_choice, help_text=u'婚姻状况', verbose_name='婚姻状况')
+    marriage = models.CharField(max_length=10, help_text=u'婚姻状况', verbose_name='婚姻状况')
     # 文化程度
     culture = models.CharField(max_length=20,verbose_name="文化程度")
     # 所属区域
-    area = models.CharField(max_length=20,verbose_name="所属区域")
+    province = models.CharField(max_length=20,verbose_name="所属省份")
+    city = models.CharField(max_length=20,verbose_name="所属城市")
     # 农房数量
     house_num = models.IntegerField(default=0, verbose_name=u"农房数量")
     # 农房面积
@@ -138,12 +143,15 @@ class HouseMainInfo(models.Model):
     winning_p = models.ImageField(verbose_name=u"获奖图片", null=True)
     # 农业补贴
     agricultural_subsidies = models.FloatField(default=0, verbose_name=u"农业补贴")
-    # 责任人（接收的业务人员）
-    responsible = models.ForeignKey(PersonInfo, on_delete=models.CASCADE, verbose_name="责任人（接收的业务人员）")
     # 建档时间
     join_time = models.DateTimeField(auto_now_add=True, verbose_name=u"建档时间")
     # 可贷款金额
     loanable = models.FloatField(default=0, verbose_name=u"贷款金额(元)")
+    area = models.CharField(max_length=20,verbose_name="所属区域")
+    Regional_Manager = models.CharField(max_length=20, verbose_name='区域经理')
+    # 责任人（接收的业务人员）
+    responsible = models.ForeignKey(PersonInfo, on_delete=models.CASCADE, verbose_name="责任人（接收的业务人员）")
+    business_number = models.CharField(max_length=20, verbose_name='业务人员编号')
 
     class Meta:
         ordering = ("join_time",)
@@ -166,7 +174,7 @@ class PeopleOfMain(models.Model):
     # 所属区域
     area = models.CharField(max_length=50, verbose_name="区域")
     # 关联户主表
-    user = models.OneToOneField(to=HouseMainInfo, to_field='id_number', on_delete=models.CASCADE, help_text="关联户主")
+    user = models.ForeignKey(HouseMainInfo, on_delete=models.CASCADE, help_text="关联户主")
 
     class Meta:
         verbose_name_plural = "户主家庭成员"
