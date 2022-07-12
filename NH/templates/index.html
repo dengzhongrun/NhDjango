@@ -1,681 +1,48 @@
-{% load static %}
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+{% load static %}
 <html lang="en">
 <head>
-
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-
-    <title>智慧校园门户</title>
-    <link rel="stylesheet" href="{% static '/css/layui.css' %}">
-    <link rel="stylesheet" href="{% static '/css/simple-calendar.css' %}">
-    <link rel="stylesheet" href="{% static '/css/sytle.css' %}">
-    <link rel="stylesheet" href="{% static '/css/swiper.min.css' %}">
-    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
-
-
-    <script src="../static/js/jquery-1.9.1.min.js"></script>
-
-
-    <script src="../static/js/jquery.min.js"></script>
-
-
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../static/js/jquery.noreferrer.js"></script>
-    <script type="text/javascript" src="../static/js/wisdragon.simpleTable.js"></script>
-
-    <script type="text/javascript" src="../static/js/wf_common.js"></script>
-
-    <script src="../static/js/highcharts.js"></script>
-    <script type="text/javascript" src="../static/js/jquery.json.js"></script>
-    <script type="text/javascript" src="../static/js/jsencrypt.min.js"></script>
-    <script type="text/javascript" src="../static/js/ServiceInfo.js"></script>
-    <script src="../static/js/layui.js"></script>
+    <title>农户建档绩效系统</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="{% static '/css/shouye/sytle.css' %}">
+    <link rel="stylesheet" href="{% static '/css/shouye/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/shouye/bootstrap1.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/shouye/iconfont.css' %}">
+    <link rel="stylesheet" href="{% static '/css/shouye/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static '/css/shouye/public.css' %}">
+    <link rel="stylesheet" href="{% static '/css/shouye/home.css' %}">
     {% block css %} {% endblock %}
-    {% block js %} {% endblock %}
 
 
-
-    <script type="text/javascript">
-
-        var path = 'http://i.cqie.edu.cn:80/';
-
-    </script>
-
-
-
-    <link rel="stylesheet" href="{% static '/css/meau.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/css/kefu.css' %}"/>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/shouye/meau.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/shouye/kefu.css' %}"/>
 
     <style type="text/css">
         * {
-            border: 0;
             padding: 0;
             margin: 0;
-            text-decoration: none;
         }
-
-        table {
-            border-collapse: collapse;
-            border: 1px #525152 solid;
-            width: 1100px !important;
-            margin: 0 auto;
-            logincontentdiv margin-top: 25px;
-            margin-bottom: 25px !important;
+        .img{
+            width: 80px;
+            height: 80px;
         }
-
-        th, td {
-            border: 1px #525152 solid;
-            text-align: center;
-            font-size: 12px;
-            line-height: 30px;
+        .img1{
+            width: 210px;
+            height: 80px;
         }
-
-        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
-            padding: 0 !important;
+        .lo{
+            background-color: red;
         }
-
-        .container-table {
-            position: absolute;
-            z-index: 9999;
-            margin-top: -5%;
-            margin-left: 40%;
-
+        .bg{
+            background-color: #2063b2;
         }
-
-        @media screen and (max-width: 1920px) {
-            .container-table {
-                margin-top: -104px;
-                margin-left: 42%;
-            }
-
-        }
-
-        @media screen and (max-width: 1366px) {
-            .container-table {
-                margin-top: -8%;
-            }
-
-        }
-
-        @media screen and (max-width: 1024px) {
-            .container-table {
-                margin-top: -10.5%;
-            }
-
-        }
-
-        tr {
-            height: 100px;
-        }
-
-        p {
-            margin-top: 6px;
-            margin-bottom: 3px;
-        }
-
-        .main1 {
-            /*width: 73%;*/
-            box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.35);
-            border-radius: 5px;
-            background-color: white;
-        }
-
-        .main-noborder {
-            width: 357px;
-            background-color: white;
-            margin-top: 0;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
-            color: black;
-            padding: 1% 5%;
-            height: 91%;
-            text-align: center;
-        }
-
-        .download, .download:focus, .download:hover {
-            background-color: #72b524;
-            text-decoration: none;
-            cursor: pointer;
-            padding: 4px 14px;
-            margin-left: 6px;
+        .zt{
             color: white;
-            border-radius: 4px;
-            margin-top: 10px;
-            display: inline-block;
-        }
-
-        .a-btn:hover,
-        .a-btn:focus,
-        .a-btn:active,
-        .a-btn {
-            background-color: #faa112;
-            padding: 3px 16px;
-
-            border-radius: 5px;
-            margin-right: 10px;
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .grenab {
-            background-color: #62d0a8;
-        }
-
-        .text-centers.upate {
-            text-algin: center;
-
-        }
-
-        #img-left {
-            position: absolute;
-            top: -71px;
-            right: 0px;
-        }
-
-        #img-right {
-            position: absolute;
-            top: -71px;
-            right: 20px;
-        }
-
-        .tooltips {
-            position: absolute;
-            left: 42%;
-            color: #ff6600;
-            display: none;
-            background-color: white;
-            border-radius: 5px;
-            width: 35%;
-            line-height: 25px;
-            float: right;
-            margin-top: -9%;
-            margin-left: 18%;
-            box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.35);
-            padding: 2px;
-        }
-
-        .imgtool {
-            height: 75px;
-            border-radius: 100%;
-        }
-
-        .personal_module_content {
-            margin-top: 6px;
-        }
-
-        .hot_content span {
-            height: 100%;
-        }
-
-        .imginer {
-            width: 80%;
-        }
-
-        .control_content .col-sm-8 {
-            padding-left: 0;
-        }
-
-        .control_content {
-            padding: 0;
-        }
-
-        .col-sm-4 {
-            width: 33.3333333%;
-            float: left;
-        }
-
-        .col-sm-8 {
-            width: 66.66666%;
-            float: left;
-        }
-
-        .news_content ul li {
-            /* list-style-type: disc; */
-            background-image: none;
-            padding-left: 0;
-        }
-
-        /* .news_content ul {
-            padding-left: 26px;
-        } */
-        .deal {
-            text-align: right !important;
-            font-size: 12px;
-            color: red;
-        }
-
-        .deal a {
-            color: #4f5b94 !important;
-        }
-
-        /* 2018/11/21新增 */
-        .part-3 .tab_title {
-            cursor: pointer;
-            font-size: 15px;
-            padding: 5px 0px;
-            display: inline-block;
-            margin-right: 30px;
-        }
-
-        .part-4 .tab_title {
-            cursor: pointer;
-            font-size: 15px;
-            padding: 5px 0px;
-            display: inline-block;
-            margin-right: 30px;
-        }
-
-        .tab_title:hover {
-            color: #6497d9;
-        }
-
-        .tab_title.active {
-            color: #6497d9;
-            border-bottom: 2px solid #6497d9;
-            font-weight: bold;
-        }
-
-        .tab_title:active {
-            color: #6497d9;
-            border-bottom: 2px solid #6497d9;
-            font-weight: bold;
-        }
-
-        .tab_title hover {
-            color: #6497d9;
-        }
-
-        a:link {
-            color: #000;
-            text-decoration: none;
-        }
-
-        a:visited {
-            color: #000;
-            text-decoration: none;
-        }
-
-        body div span a:hover {
-            color: #000;
-            text-decoration: none !important;
-        }
-
-        a:active {
-            text-decoration: none;
-            color: #000;
-        }
-
-        .loadbackIcon {
-            width: 56px;
-            height: 56px;
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin: 0 auto;
-        }
-
-        /*   .dongtai{
-              width:100%;
-              height: 40px;
-              line-height: 40px;
-              background-color: #f9f7f7;
-              float:left;
-              border-top-left-radius: 5px;
-              border-top-right-radius: 5px;
-              color: #222;
-          }
-           .dongtaicon{
-               width:100%;
-               padding-bottom:30px;
-           }
-           .title{
-               float:left;
-              width: 72px;
-              line-height: 44px !important;
-              height: 44px !important;
-           }
-           .title.active{
-               float:left;
-              width: 72px;
-              line-height: 44px !important;
-              height: 44px !important;
-              background:#f9f7f7;
-              color:#0C7ED9;
-              border-bottom: 2px solid #0C7ED9;
-           }
-           .module_title .title.active{
-               background:transparent !important;
-           } */
-
-        .border-rt {
-            padding: 0;
-            margin: 0;
-            border: none;
-        }
-
-        #part1 {
-            position: relative;
-        }
-
-        #part1 > div > a {
-            position: absolute;
-            top: -44px;
-            right: 0px;
-        }
-
-        #part2 > div > .more {
-            position: absolute;
-            top: 8px;
-            right: 0px;
-        }
-
-        .new_list {
-            border-top: 0px !important;
-        }
-
-        #portal_nav li:nth-child(1) {
-            background-color: #10A4E4 !important;
-        }
-
-        .touxiang {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .dtmodal {
-            height: 100%;
-            width: 47.5% !important;
-            position: relative !important;
-            left: 13px;
-        }
-
-        #dts {
-            padding-left: 0 !important;
-            height: 400px;
-        }
-
-        .newrelease span {
-            width: 20% !important;
-        }
-
-        /*  .models{
-              border: 1px solid red;
-          }
-          .models .boxshaow{
-              border: 1px solid green;
-          }*/
-        .revision span {
-            height: 100px !important;
-        }
-
-        .hide {
-            display: none !important;
-        }
-
-        /*12-20修改头像 我的邮件，我的申请等*/
-        .hch-mine {
-            display: flex;
-            margin: 0;
-        }
-
-        .hch-mine li {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 15px 20px;
-            /*background-color: pink;*/
-            border-radius: 4px;
-            padding: 20px 10px;
-            position: relative;
-        }
-
-        .hch-mine li > p {
-            margin: 0;
-            color: #fff;
-            line-height: 1;
-            margin-top: 10px;
-        }
-
-        .hch-mine li > h4 {
-            margin: 0;
-            font-size: 12px;
-            position: absolute;
-            border-radius: 50px;
-            background-color: #dd0000;
-            min-height: 17px;
-            min-width: 28px;
-            top: 13px;
-            right: 25%;
-            line-height: 17px;
-            text-align: center;
-            height: 17px;
-            padding: 0 2px;
-            box-sizing: border-box;
-        }
-
-        .hch-mine li img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .hch-mine li:nth-child(1) {
-            flex: 20%;
-            width: 320px !important;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            background: none;
-            position: relative;
-            padding: 0;
-        }
-
-        .hch-mine li:nth-child(1)::after {
-            display: inline-block;
-            content: '';
-            width: 1px;
-            height: 130%;
-            border-right: 1px dashed #eee;
-            position: absolute;
-            top: -10%;
-            right: 10%;
-        }
-
-        .username {
-            margin-left: 20px;
-        }
-
-        .hch-tx {
-            margin: 0 !important;
-            width: 109px !important;
-            height: 109px !important;
-            padding: 3px;
-            border: 2px solid #bf9f66;
-        }
-
-        .hch-tx img {
-            width: 99px !important;
-            height: 99px !important;
-        }
-
-        .wdsx {
-            background-color: #ffb700;
-        }
-
-        .wdyj {
-            background-color: #ffb700;
-        }
-
-        .wdsq {
-            background-color: #00d6c2;
-        }
-
-        .tsjy {
-            background-color: #00bfff;
-        }
-
-        .cwxt {
-            background-color: #7577ff;
-        }
-
-        .tab_content.news_content, .list_table thead {
-            display: none;
-        }
-
-        .list_table table {
-            table-layout: fixed;
-            margin-top: 10px !important;
-            width: 100% !important;
-            border: none !important;
-            box-shadow: none !important;
-        }
-
-        .list_table table ul li:first-child {
-            white-space: nowrap;
-            overflow: hidden;
-            border: none;
-            text-align: left;
-            text-overflow: ellipsis;
-            padding: 6px 15px !important;
-            width: 70% !important;
-            box-sizing: border-box;
-            padding-right: 0 !important;
-        }
-
-        .list_table {
-            height: 240px;
-            box-shadow: none !important;
-        }
-
-        .list_table table ul {
-            height: auto !important;
-            background-color: white !important;
-        }
-
-        .list_table table ul li:first-child a {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 100%;
-            display: inline-block;
-            font-size: 14px !important;
-        }
-
-        .list_table table ul li:first-child a:hover {
-            color: #0C7ED9 !important;
-        }
-
-        .list_table table ul li:last-child {
-            text-align: right !important;
-            width: 28% !important;
-            padding: 6px 15px !important;
-            box-sizing: border-box;
-            color: #959595;
-            border: none;
-            font-size: 12px !important;
-        }
-
-        #weather-view-he {
-            background-image: unset !important;
-            background: rgba(0, 0, 0, 0.34) !important;
-        }
-
-        .swiper-wrapper {
-            height: 320px;
-        }
-
-        .swiper-slide {
-            height: 320px;
-        }
-
-        .tj_div {
-            border-top: 20px solid #efeff4;
-        }
-
-        .statistics_title {
-            border-bottom: 1px solid #d6d7dc;
-        }
-
-        .statistics_title span {
-            display: inline-block;
-            padding: 12px 8px;
-            color: #808080;
-            font-size: 16px;
-            margin-right: 20px;
-            cursor: pointer;
-        }
-
-        .statistics_title span.active {
-            border-bottom: 2px solid #002ec2;
-            color: black;
-            font-weight: bold;
-        }
-
-        .statistics_content {
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-
-        .statistics_content p {
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        span#login_name {
-            font-size: 12px;
-            display: block;
-            padding: 5px 10px;
-            border: 1px solid #e1bb54;
-            text-align: center;
-            background-color: #fdf7eb;
-            color: #c4a142;
-            border-radius: 3px;
-        }
-
-        h5#login_id {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1e1e1e;
-        }
-
-
-        i.layui-icon {
-            font-size: 15px !important;
-            color: #ff8e46 !important;
-            margin-right: 0 !important;
-        }
-
-        #newApps p {
-            text-align: left;
-            margin-top: 15px;
-        }
-
-        span.layui-inline {
-            width: 0 !important;
-            height: 0 !important;
-            border: 0 !important;
-            float: right;
-            margin: 0;
-            padding: 0;
-        }
-
-        .scstar.layui-inline {
-            float: left;
         }
     </style>
-
 
 </head>
 
@@ -684,110 +51,54 @@
 
     <!-- headStart -->
 
-
-
-
-<!-- begin sweet-alert -->
-<script src="http://i.cqie.edu.cn:80/resources/plugins/sweet-alert/js/sweet-alert.js"></script>
-<link rel="stylesheet" href="http://i.cqie.edu.cn:80/resources/plugins/sweet-alert/css/sweet-alert.css">
-<script src="http://i.cqie.edu.cn:80/resources/plugins/sweet-alert/js/sweet-alert.min.js"></script>
-<!-- end sweet-alert -->
-
-
-<script type="text/javascript" src="../static/js/checkBrowser.js"></script>
-
-
-<script src="../static/js/jquery.imports.js"></script>
-<script type="text/javascript" src="http://i.cqie.edu.cn:80/resources/plugins/JqueryForm/jquery-form.js"></script>
-<script type="text/javascript" src="http://i.cqie.edu.cn:80/resources/plugins/cookie/jquery.cookie.js"></script>
-<script type="text/javascript" src="http://i.cqie.edu.cn:80/subsystem/wf/common/wf_common.js"></script>
-<script type="text/javascript" src="http://i.cqie.edu.cn:80/resources/js/pfs_common_function.js"></script>
-<script src="http://i.cqie.edu.cn:80/portal/scripts/service/jsencrypt.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-
-	pfs.comm.path = '';
-	pfs.comm.basePath = 'http://i.cqie.edu.cn:80/';
-</script>
-
-<script type="text/javascript" src="http://i.cqie.edu.cn:80/js/Base64.js"></script>
-<script type="text/javascript" src="http://i.cqie.edu.cn:80/portal/apps/include/top.js" charset="UTF-8"></script>
-<link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static '/css/common.css' %}">
-
+<link rel="stylesheet" href="{% static '/css/shouye/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static '/css/shouye/common.css' %}">
         <!-- headStart -->
         <div class="row header hch-head">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="main_content">
-
-                        <img src="/resources/style/pc/images/gc/logo2.png" alt="" class="pull-left logo hch-logo" >
-
-
-                    <ul class="pull-left hch-nav" id="portal_nav"><li class="pull-left active"><a href="javascript:void(0)" data-id="fbf870df69dc48e091cdba75c041627a" onclick="openPortalNav(this, 'appcenter/toPortalPage', 1, 0, 'null')">信息门户</a></li><li class="pull-left"><a href="javascript:void(0)" data-id="85cefe98ca164e568da73b316085eb5d" onclick="openPortalNav(this, 'hallIndex/viewAllApps?appType=myApp', 1, 1, 'null')">服务大厅</a></li><li class="pull-left"><a href="javascript:void(0)" data-id="e2645911d12c4db2b30bf5e889e01e1d" onclick="openPortalNav(this, 'business/pages/personalCt/pc/personal_Ct.jsp', 1, 2, 'null')">个人中心</a></li><li class="pull-left hch-li"><a class="hch-logout" href="javascript:void(0)" onclick="loginOut('http://i.cqie.edu.cn:80/')">注销</a></li></ul>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="main_content lo">
+                        <img src="../static/images/logo1.png" alt="" class="pull-left img" >
+                        <img src="../static/images/jd.jpg" alt="" class="pull-left img1" >
+                    <ul class="pull-left hch-nav" id="portal_nav">
+                        <li class="pull-left active">
+                            <a href="javascript:void(0)"  onclick="">网站首页</a>
+                        </li>
+                        <li class="pull-left">
+                            <a href="/jixiao/ck/" onclick="">绩效任务查看</a>
+                        </li>
+                        <li class="pull-left">
+                            <a href="/chart/list/"  onclick="">绩效任务可视化</a>
+                        </li>
+                        <li class="hch-li">
+                            <a class="hch-logout" href="javascript:void(0)" onclick="loginOut('http://i.cqie.edu.cn:80/')">登录</a>
+                        </li>
+                    </ul>
 
                 </div>
             </div>
         </div>
         <!-- headEnd -->
 
-
-
-
-
     <!-- headEnd -->
-    <div class="container-table hide">
-        <!-- content -->
-        <div class="main1">
-            <div class="mains main-noborder">
-                <div class="glyphicon glyphicon-remove" id="closeBtn"
-                     style="text-align: right;position: absolute;top: 4%;right: 1%;"></div>
-                <h5 class="text-centers" id="telnumber"></h5>
-                <h5 class="text-centers update" id="updateTel">
-
-                </h5>
-            </div>
-        </div>
-    </div>
 
     <!-- contentStart -->
     <div class="row">
-
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 face-div hide">
-
-
-        </div>
-
-
+        {% block content %}
         <div class="shixiang hch-shixiang" style="position: relative">
 
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg" style="margin-top: 25px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 25px;">
                 <div class="main_content">
                     <div class="row" style="padding: 0 30px;">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <div class="swiper-container" id="case1">
-                            <div class="swiper-wrapper" style="height: 320px;">
+                            <div class="swiper-wrapper" >
                                 <div class="swiper-slide" style="height: 320px"><img
                                         src="../static/images/bg_1.jpg" alt=""></div>
                                 <div class="swiper-slide"><img
-                                        src="../static/images//bg_2.jpg" alt=""></div>
+                                        src="../static/images/bg_2.jpg" alt="" ></div>
                                 <div class="swiper-slide"><img
-                                        src="../static/images//bg_3.jpg" alt=""></div>
+                                        src="../static/images/bg_3.jpg" alt="" ></div>
                             </div>
                             <!-- 导航按钮 上一页下一页 -->
-
-
                             <!-- 分页器 -->
                             <div class="swiper-pagination"></div>
                             <!-- 滚动条 -->
@@ -796,713 +107,1008 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row no-padding" id="widget_ext_weather" style="z-index: 999;
-    width: 1100px;
-    margin: 0 auto 0;
-    float: none;
-    position: absolute;
-    bottom: 10px;left: 50%;
-    transform: translateX(-50%);">
-
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" align="left"></div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" align="left" style="padding:0;padding-left:30">
-
-
-                    <iframe style="background-color: rgba(0,0,0,0.2);border-radius: 5px;" allowtransparency="true"
-                            frameborder="0" width="290" height="96" scrolling="no"
-                            src="//tianqi.2345.com/plugin/widget/index.htm?s=2&z=1&t=0&v=0&d=2&bd=0&k=&f=ffffff&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=57516&w=290&h=96&align=centor"></iframe>
-
-
-                </div>
-                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" align="left"></div>
-
-            </div>
-
-
-
-
-
-
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 calendar hide">
-                <img src="/resources/style/pc/images/sixbanpic/home_icon_calendar.png" width="80px">
-                <p id="week_p"></p>
-                <p id="date_p"></p>
-                <p class="white">日程 | 暂无</p>
-            </div>
-
-
-
-
-        </div>
-
-
-
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg">
-            <div class="main_content">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border-bm">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right boxshaow">
-                                <ul class="hch-mine">
-                                    <li>
-                                        <div class="touxiang hch-tx">
-                                            <img onerror="javascript:this.src='/resources/style/mobile/images/icon_head_PC083002.png'"
-                                                 class="border-radius face-picture" style="width: 100%;height: 100%;"
-                                                 id="personIcon" onclick="loadP()">
-                                        </div>
-                                        <div class="username">
-                                            <h5 id="login_id"></h5>
-                                            <h4>
-                                                <span id="login_name"></span>
-                                                <span id="cw" style="display: none"></span>
-                                                <span id="a_p_m"
-                                                      style="color: green;font-size: 14px;display: none;"></span>
-                                            </h4>
-                                        </div>
-                                    </li>
-                                    <li class="wdsx"
-                                        onclick="loadPersonData('http://i.cqie.edu.cn:80//myAffairs/viewMyAffairsGrid')">
-                                        <img src="/resources/style/pc/images/sixbanpic/home_banner_icon_2.png"
-                                             width="40px">
-                                        <p class="news_span">我的事项</p>
-                                        <h4 class="orange" id="myAffairsCount">0</h4>
-                                    </li>
-                                    <li class="wdsq" onclick="loadPersonData('http://i.cqie.edu.cn:80//MyApply/viewApplyList')">
-                                        <img src="/resources/style/pc/images/sixbanpic/home_banner_icon_3.png"
-                                             width="40px">
-                                        <p>我的申请</p>
-                                        <h4 class="orange" id="myApplyCount">0</h4>
-                                    </li>
-
-                                    <li class="wdyj" onclick="window.open('http://mail.cqie.edu.cn')">
-                                        <img src="/resources/style/pc/images/newicon/youxiang.png"
-                                             width="40px">
-                                        <p>我的邮箱</p>
-                                        <h4 class="white" id="myQQEmailCount">0</h4>
-                                    </li>
-                                    <li class="tsjy"
-                                        onclick="loadPersonData('http://oa.cqie.edu.cn/sys/notify/index.jsp?dataType=todo')">
-                                        <img src="/resources/style/pc/images/newicon/zhoubiao.png"
-                                             width="40px">
-                                        <p>OA待办</p>
-
-
-                                        <h4 class="white" id="myOACount">0</h4>
-                                    </li>
-
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border-bm"></div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="jsxx">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 border-bm">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right boxshaow">
-                                <div class="tab_header new_tabs1 hch-tab">
-                                    <span class="active" style="width: auto">
-                                        <img src="/resources/style/pc/images/newicon/icon-fw.png" alt="">
-                                        学校发文
-                                    </span>
-
-                                    <a href="http://oa.cqie.edu.cn/km/imissive/#cri.q=fdTemplate:15d160469de518322a78a41411699b8f"
-                                       target="_blank" style="float:right" class="more">更多</a>
-
-                                    <input type="hidden" name="bs" id="bs">
-
-
-
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right boxshaow list_table"
-                                     id="notice_news_list1" style="height: 270px"></div>
-
-
-
-                                <div class="tab_content news_content">
-                                    <div class="content content-1" id="content1"></div>
-                                    <div class="content content-2" id="content2"></div>
-                                    <div class="content content-3" id="content3"></div>
-                                    <div class="content content-4" id="content4"></div>
-                                    <div class="content content-5" id="content5"></div>
-                                    <div class="content content-6" id="content6"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 border-bm">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right boxshaow">
-                                <div class="tab_header new_tabs2 hch-tab">
-
-                                <span class="active" style="width: auto">
-                                     <img src="/resources/style/pc/images/newicon/icon_tz.png" alt="">
-                                    学校通知
-                                </span>
-
-
-                                    <a href="http://oa.cqie.edu.cn/sys/news/?categoryId=13b44e2c48b36b3ce8bedd64f61b1dc7"
-                                       target="_blank" style="float:right" class="more">更多</a>
-
-
-
-
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right boxshaow list_table"
-                                     id="notice_news_list2" style="height: 270px"></div>
-
-
-                                <div class="tab_content news_content">
-                                    <div class="content content-7" id="content9" style="display: block;">
-
-                                    </div>
-                                    <div class="content content-8" id="content12"></div>
-
-                                    <!--  <div class="part part-1" id="part1"></div>
-                                        <div class="part part-2" id="part2"></div> -->
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 border-bm">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right boxshaow">
-                                <div class="tab_header new_tabs2 hch-tab">
-
-                                <span class="active" style="width: auto">
-                                     <img src="/resources/style/pc/images/newicon/icon_gg.png" alt="">
-                                    学校公告
-                                </span>
-
-                                    <a href="http://oa.cqie.edu.cn/sys/news/?categoryId=13b92d7b7391b95757fabd940c6998fb"
-                                       target="_blank" style="float:right" class="more">更多</a>
-
-
-
-
-
-
-
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right boxshaow list_table"
-                                     id="notice_news_list3" style="height: 270px"></div>
-
-
-
-
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  " id="xsxx">
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6  border-bm " id="tzggxx">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right  boxshaow ">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ynavbar hch-bar">
-
-                                    <span class="navname hch-navname">
-                                        <img src="/resources/style/pc/images/newicon/icon_tz.png" alt="">
-                                        通知公告
-                                    </span>
-
-                                    <a href="http://a.cqie.edu.cn/cas/login?service=http://xs.cqie.edu.cn/xg/ssoLogin.jsp?rdPath=backstageNoNav.jsp?loadMainPage=spring:NoticeNewsList/viewListPage?type=2&title=通知公告"
-                                       target="_blank" style="float:right" class="more">更多</a>
-
-
-
-
-
-
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg boxradius">
-                                    <iframe id="tzgg" name="tzgg" frameborder="0" scrolling="no" height="246px"
-                                            width="100%">
-
-                                    </iframe>
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6  border-bm " id="swzlxx">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right  boxshaow ">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ynavbar hch-bar">
-
-                                    <span class="navname hch-navname">
-                                        <img src="/resources/style/pc/images/newicon/icon_tz.png" alt="">
-                                        失物招领
-                                    </span>
-                                    <a href="http://a.cqie.edu.cn/cas/login?service=http://xs.cqie.edu.cn/xg/ssoLogin.jsp?rdPath=backstageNoNav.jsp?loadMainPage=spring:SWZLXXController/viewListPage?type=2&title=通知公告"
-                                       target="_blank" style="float:right" class="more">更多</a>
-
-
-
-
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg boxradius">
-                                    <iframe id="swzl" name="swzl"  frameborder="0"
-                                            scrolling="no" height="246px" width="100%">
-
-                                    </iframe>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  " id="xxhd">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  border-bm " id="hdxx">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg no-padding-left no-padding-right  boxshaow ">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ynavbar hch-bar">
-                                    <span class="navname hch-navname">
-                                        <img src="/resources/style/pc/images/newicon/icon_tz.png" alt="">
-                                        学校活动
-                                    </span>
-
-                                    <a href="http://a.cqie.edu.cn/cas/login?service=http://xs.cqie.edu.cn/xg/ssoLogin.jsp?rdPath=backstageNoNav.jsp?loadMainPage=spring:allhdzyz/FromQXHDMHView"
-                                       target="_blank" style="float:right" class="more">更多</a>
-
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg boxradius">
-                                    <iframe id="syhd" name="syhd" frameborder="0" scrolling="no" height="246px"
-                                            width="100%">
-
-                                    </iframe>
-
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div class="col-md-12 col-sm-12 col-xs-12 tj_div" id="SJDIV"
-                         style="display:none;margin-left:30px;width:94.5%;background-color: white">
-                        <div class="col-md-12 col-sm-12 col-xs-12 statistics_title" id="chosenSpan">
-                            <span class="active" onclick="showData(1)">师资概况</span>
-                            <span onclick="showData(2)">学生概况</span>
-                            <span onclick="showData(3)">职位概况</span>
-                            <span onclick="showData(4)">科研概况</span>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 statistics_content" id="SJSHOWDIV">
-
-
-
-                            <div class="col-md-6 col-sm-6 col-xs-6" id="teacherData">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p>
-                                        教授：37人
-                                    </p>
-                                    <p>
-                                        副教授：88人
-                                    </p>
-
-                                    <p>
-                                        助教：24人
-                                    </p>
-                                    <p>
-                                        软件设计师：11人
-                                    </p>
-                                    <p>
-                                        高级工程师：29人
-                                    </p>
-
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p>
-                                        讲师：215人
-                                    </p>
-                                    <p>
-                                        工程师：55人
-                                    </p>
-                                    <p>
-                                        信息系统项目管理师：25人
-                                    </p>
-                                    <p>
-                                        经济师：18人
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6" id="xsdata">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p>
-                                        计算机与物联网学院：2773人
-                                    </p>
-                                    <p>
-                                        管理学院：4697人
-                                    </p>
-
-                                    <p>
-                                        土木工程学院：3173人
-                                    </p>
-                                    <p>
-                                        电子信息学院：1882人
-                                    </p>
-                                    <p>
-                                        大数据与人工智能学院：553人
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p>
-                                        数字艺术学院：3939人
-                                    </p>
-                                    <p>
-                                        软件学院：3969人
-                                    </p>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6" id="zhiweidata">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p>
-                                        经济专业：25人
-                                    </p>
-                                    <p>
-                                        图群专业（图书资料）：4人
-                                    </p>
-
-                                    <p>
-                                        新闻专业（编辑）：1人
-                                    </p>
-                                    <p>
-                                        自然科学研究：1人
-                                    </p>
-                                    <p>
-                                        高等学校教师：317人
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p>
-                                        会计专业：9人
-                                    </p>
-                                    <p>
-                                        工程技术：115人
-                                    </p>
-                                    <p>
-                                        工商管理：1人
-                                    </p>
-                                    <p>
-                                        环境艺术设计专业：1人
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6" id="keyandata">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p>
-                                        论文：491
-                                    </p>
-                                    <p>
-                                        著作：99
-                                    </p>
-
-                                    <p>
-                                        纵横科研项目：59
-                                    </p>
-                                    <p>
-                                        科研成果获奖：100
-                                    </p>
-                                    <p>
-                                        产权成果：97
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p>
-                                        专利成果：97
-                                    </p>
-
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-sm-6 col-xs-6" style="margin-top: -18px;">
-                                <div id="container" style="min-width:100px;height:200px"></div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="margin-top:10px;">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  border-bm ">
-
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border-bm ynavbar hch-bar">
-
-                                <span class="navname hch-navname">
-                                        <img src="/resources/style/pc/images/newicon/icon_xt.png" alt="">
-                                        系统导航
-                                    </span>
-
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  white-bg boxradius">
-                                <div id="BussinessSystem"
-                                     class="no-padding-left no-padding-right hot_content hch-xtdh revision"
-                                     style="padding: 2px;">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 wpadrle wpadlle models border-bm "
-                         style="height:auto; margin-top:5px;" id="zxfb">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  border-bm ">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ynavbar hch-bar">
-
-                                <span class="navname hch-navname">
-                                        <img src="/resources/style/pc/images/newicon/icon_yy.png" alt="">
-                                        我的收藏应用
-                                    </span>
-
-                                <a href="http://i.cqie.edu.cn:80/hallIndex/viewAllApps?appType=myApp" target="_blank"
-                                   style="float:right" class="more">更多</a>
-
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg boxradius"
-                                 style="height: auto;padding-bottom: 20px">
-                                <div id="newApps"
-                                     class="no-padding-left no-padding-right hot_content newrelease hch-apps"
-                                     style="padding: 2px;">
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  wpadlle border-bm models hide "
-                         style="height: 178px;" id="glkztparent">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  border-bm ">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ynavbar hch-bar">
-
-                                <span class="navname hch-navname">
-                                        <img src="/resources/style/pc/images/newicon/icon_kzt.png" alt="">
-                                        管理控制台
-                                    </span>
-
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white-bg boxradius"
-                                 style="height: 133px;">
-                                <div id="glkzt" class="no-padding-left no-padding-right hot_content revision hch-kzt"
-                                     style="padding: 2px;">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
             </div>
         </div>
     </div>
     <!-- contentEnd -->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6f087d823c99014328e347fe7f37e17e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <!--头部 end-->
 
+    <!--主体 on-->
 
-</div>
-
-<!-- footerStart -->
-
-
-
-
-        <div class="footer hch-footer cl" >
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="main_content">
-
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding-right no-padding-left help_div" style="display: none">
-                        <div class="row">
-
+    <div class="is-main">
+        <div class="container">
+            <div class="m-pgbox1">
+                <section class="m-hots f-mb20 f-md-mb10">
+                    <a class="u-onehot f-db f-toe text-center" href="/content/detail/62c623f988668851078b4570.html" title="李克强主持召开国务院常务会议 部署中央预算执行和其他财政收支审计查出问题整改工作等" target="_blank">李克强主持召开国务院常务会议 部署中央预算执行和其他财政收支审计查出问题...</a>
+                    <ul class="row f-mlrf7 m-liststyle1">
+                        <li class="col-md-4 f-plr7"><a href="/content/detail/62be3c2b8866889e638b4571.html" title="李克强主持召开国务院常务会议 确定政策性开发性金融工具支持重大项目建设的举措等" target="_blank">李克强主持召开国务院常务会议 确定政策性开发性金融工具支持重大项目建设的...</a></li>
+                        <li class="col-md-4 f-plr7"><a href="/content/detail/62bd4df1886688751d8b4573.html" title="习近平在湖北武汉考察时强调 把科技的命脉牢牢掌握在自己手中 不断提升我国发展独立性自主性安全性" target="_blank">习近平在湖北武汉考察时强调 把科技的命脉牢牢掌握在自己手中 不断提升我国...</a></li>
+                        <li class="col-md-4 f-plr7"><a href="/content/detail/62bb9e398866885b338b4570.html" title="密接、入境人员隔离管控时间调为“7+3”，成立整治“层层加码”问题专班开通留言板……最新情况通报！" target="_blank">密接、入境人员隔离管控时间调为“7+3”，成立整治“层层加码”问题专班开...</a></li>
+                    </ul>
+                </section>
+                <div class="row f-mlrf10 f-lg-mlrf5">
+                    <section class="col-md-6 m-flash f-plr10 f-mb25 f-lg-plr5 f-md-mb10">
+                        <div class="g-flash f-pr f-oh">
+                            <a href="/content/detail/62c167f788668899438b4581.html" title="临泉县组织收听收看省辖市委书记、市长二季度工作会议" target="_blank">
+                                <img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202207/20220703175732176595_bKakUWWf_600x417.jpg">
+                                <p>临泉县组织收听收看省辖市委书记、市长二季度工作会议</p>
+                            </a>
+                            <a href="/content/detail/62bc1814886688d31b8b4569.html" title="临泉县组织收听收看全市农村人居环境突出问题排查整治现场会召开" target="_blank">
+                                <img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202206/20220629171413174413_YDkw3ikA_600x351.jpg">
+                                <p>临泉县组织收听收看全市农村人居环境突出问题排查整治现场会召开</p>
+                            </a>
+                            <a href="/content/detail/62a859ab8866883e148b459f.html" title="临泉县组织收听收看全省和全市粮食安全工作电视电话会" target="_blank">
+                                <img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202206/20220614174943165197_VciJS8eJ_600x382.jpg">
+                                <p>临泉县组织收听收看全省和全市粮食安全工作电视电话会</p>
+                            </a>
+                            <a href="/content/detail/62a30baa886688b82c8b4568.html" title="临泉县召开2022年县级总河长会议" target="_blank">
+                                <img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202206/20220610171532163718_a2I2b1Yn_600x360.jpg">
+                                <p>临泉县召开2022年县级总河长会议</p>
+                            </a>
+                            <a href="/content/detail/62a06cb18866881f788b4577.html" title="临泉县收听收看全省总河长第六次电视电话会暨2022年度市级总河长会议" target="_blank">
+                                <img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202206/20220608173243161734_h35R0lUY_600x372.jpg">
+                                <p>临泉县收听收看全省总河长第六次电视电话会暨2022年度市级总...</p>
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding-right no-padding-left help_div" style="text-align: center;display:none">
-
-
-
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding-right no-padding-left help_div" style="display: none">
-
-
-                    </div>
-
-                <div class="hch-foot-main">
-                    <div class="foot-main-top cl">
-                        <div class="foot-img">
-                            <img src="/resources/style/pc/images/newicon/foot_logo.png" alt="">
+                    </section>
+                    <section class="col-md-6 m-news f-plr10 f-mb25 f-lg-plr5 f-md-mb10">
+                        <div class="g-news f-oh f-md-ha">
+                            <div class="m-tabstyle1 f-clearfix f-mb10 tit-switch">
+                                <ul>
+                                    <li class="u-active"><a href="/content/channel/58992c9eceab06392e82f6b5/" target="_blank">今日临泉<em></em></a></li>
+                                    <li><a href="/content/channel/58992cb5ceab063b2e82f6b5/" target="_blank">部门工作<em></em></a></li>
+                                    <li><a href="/content/channel/58992d4bceab06ac2e82f6b5/" target="_blank">乡镇动态<em></em></a></li>
+                                    <li><a href="/content/channel/58993194ceab063c3282f6b5/" target="_blank">通知公告<em></em></a></li>
+                                    <li><a >重要转载<em></em></a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch">
+                                <ul>
+                                    <li><span>2022-07-07</span><a href="/content/detail/62c55112886688c1588b4567.html" target="_blank" title="省专家组到临泉县指导防汛救灾排涝保苗工作">省专家组到临泉县指导防汛救灾排涝保苗工作</a></li>
+                                    <li><span>2022-07-06</span><a href="/content/detail/62c5578c886688e95d8b4568.html" target="_blank" title="江利国：“三个强化”推进突出生态环境问题整改">江利国：“三个强化”推进突出生态环境问题整改</a></li>
+                                    <li><span>2022-07-04</span><a href="/content/detail/62c262c18866883d5e8b4567.html" target="_blank" title="刘玉杰深入临泉县调研粮食生产工作">刘玉杰深入临泉县调研粮食生产工作</a></li>
+                                    <li><span>2022-07-04</span><a href="/content/detail/62c2a2618866881a168b456a.html" target="_blank" title="江利国：做到六个“进一步” 守牢坚实疫情防线">江利国：做到六个“进一步” 守牢坚实疫情防线</a></li>
+                                    <li><span>2022-07-03</span><a href="/content/detail/62c167f788668899438b4581.html" target="_blank" title="临泉县组织收听收看省辖市委书记、市长二季度工作会议">临泉县组织收听收看省辖市委书记、市长二季度工作会议</a></li>
+                                    <li><span>2022-07-02</span><a href="/content/detail/62c007d088668892668b456d.html" target="_blank" title="临泉县委常委会召开">临泉县委常委会召开</a></li>
+                                    <li><span>2022-07-02</span><a href="/content/detail/62c0081f88668813678b456e.html" target="_blank" title="江利国主持召开县政府党组会议">江利国主持召开县政府党组会议</a></li>
+                                    <li><span>2022-07-02</span><a href="/content/detail/62c00787886688ec658b456b.html" target="_blank" title="梁永勤走访慰问困难党员和困难群众">梁永勤走访慰问困难党员和困难群众</a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul>
+                                    <li><span>2022-07-07</span><a href="/content/detail/62c683a0886688cb578b4574.html" target="_blank" title="县城管执法局：“弹好”共享单车“四部曲”">县城管执法局：“弹好”共享单车“四部曲”</a></li>
+                                    <li><span>2022-07-07</span><a href="/content/detail/62c550de88668858588b456e.html" target="_blank" title="县城管执法局召开物业企业安全生产暨物业管理工作推进会">县城管执法局召开物业企业安全生产暨物业管理工作推进会</a></li>
+                                    <li><span>2022-07-07</span><a href="/content/detail/62c55c34886688955f8b457a.html" target="_blank" title="临泉县将采购无线数字电视发射系统">临泉县将采购无线数字电视发射系统</a></li>
+                                    <li><span>2022-07-06</span><a href="/content/detail/62c53acf88668832458b4568.html" target="_blank" title="临泉县坚持四原则深化食品安全“守底线、查隐患、保安全”专项行动工作">临泉县坚持四原则深化食品安全“守底线、查隐患、保安全”专...</a></li>
+                                    <li><span>2022-07-06</span><a href="/content/detail/62c40576886688c4418b4573.html" target="_blank" title="临泉县：推行“一标一评” 提升交易质效">临泉县：推行“一标一评” 提升交易质效</a></li>
+                                    <li><span>2022-07-06</span><a href="/content/detail/62c3ec79886688002d8b456b.html" target="_blank" title="县重点工程建设服务中心：一心为民办实事  “一改两为”见成效">县重点工程建设服务中心：一心为民办实事  “一改两为”见...</a></li>
+                                    <li><span>2022-07-06</span><a href="/content/detail/62c3ea8f886688292b8b4569.html" target="_blank" title="临泉县启动新型农业经营主体贷款贴息工作">临泉县启动新型农业经营主体贷款贴息工作</a></li>
+                                    <li><span>2022-07-06</span><a href="/content/detail/62c3e2ba88668856248b456d.html" target="_blank" title="县交通运输局邮政业安全中心召开上半年邮政普遍服务政企联席会">县交通运输局邮政业安全中心召开上半年邮政普遍服务政企联席...</a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul>
+                                    <li><span>2022-07-07</span><a href="/content/detail/62c50f27886688c5208b4567.html" target="_blank" title="宋集镇多措并举助力“四项行动”工作落到实处">宋集镇多措并举助力“四项行动”工作落到实处</a></li>
+                                    <li><span>2022-07-07</span><a href="/content/detail/62c4f0c58866889b058b4579.html" target="_blank" title="城东街道“四举措”全力做好防汛工作">城东街道“四举措”全力做好防汛工作</a></li>
+                                    <li><span>2022-07-06</span><a href="/content/detail/62c39ea888668822698b4576.html" target="_blank" title="迎仙镇召开暑期政务实习大学生见面会">迎仙镇召开暑期政务实习大学生见面会</a></li>
+                                    <li><span>2022-07-06</span><a href="/content/detail/62c4d97f88668872708b457b.html" target="_blank" title="庙岔镇积极开展“小额信贷”工作助力乡村振兴战略">庙岔镇积极开展“小额信贷”工作助力乡村振兴战略</a></li>
+                                    <li><span>2022-07-06</span><a href="/content/detail/62c2540c886688f8508b456c.html" target="_blank" title="田桥街道下发工作提醒单助监督提质增效">田桥街道下发工作提醒单助监督提质增效</a></li>
+                                    <li><span>2022-07-05</span><a href="/content/detail/62be437488668874698b456f.html" target="_blank" title="庙岔镇多措并举强化帮扶走访工作助力乡村振兴战略">庙岔镇多措并举强化帮扶走访工作助力乡村振兴战略</a></li>
+                                    <li><span>2022-07-05</span><a href="/content/detail/62bf9e8a886688e00c8b456d.html" target="_blank" title="高塘镇开展庆“七一”系列主题活动">高塘镇开展庆“七一”系列主题活动</a></li>
+                                    <li><span>2022-07-04</span><a href="/content/detail/62c2539c886688c4508b456a.html" target="_blank" title="田桥街道“三举措”保障“小微权力”规范运行">田桥街道“三举措”保障“小微权力”规范运行</a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul>
+                            <li><span>2022-07-07</span><a href="/content/detail/62c68b59886688d05e8b4577.html" target="_blank" title="安徽省临泉县国有建设用地使用权挂牌出让公告(临自然资公告〔2022〕13号)">安徽省临泉县国有建设用地使用权挂牌出让公告(临自然资公告...</a></li>
+                            <li><span>2022-07-07</span><a href="/content/detail/62c632018866881a148b4567.html" target="_blank" title="关于2022年第四期企业拟退休人员名单的公示">关于2022年第四期企业拟退休人员名单的公示</a></li>
+                            <li><span>2022-07-07</span><a href="/content/detail/62c6244b886688cb078b456e.html" target="_blank" title="关于2022年第四期灵活就业人员拟享受养老保险待遇名单的公示">关于2022年第四期灵活就业人员拟享受养老保险待遇名单的...</a></li>
+                            <li><span>2022-07-05</span><a href="/content/detail/62c40565886688c4418b456f.html" target="_blank" title="临泉县2022年县内教师流动公告">临泉县2022年县内教师流动公告</a></li>
+                            <li><span>2022-07-05</span><a href="/content/detail/62c51227886688ec218b456a.html" target="_blank" title="临泉县化工产业集中区管理中心2022年招聘工作人员公告">临泉县化工产业集中区管理中心2022年招聘工作人员公告</a></li>
+                            <li><span>2022-07-05</span><a href="/content/detail/62c3e88f88668834298b4570.html" target="_blank" title="临泉县国有土地使用权出让结果公告(LQ〔2020〕-G30号、LQ〔2021〕-G22号、LQ〔2021〕-G23号、LQ〔2022〕-G05号、LQ〔2022〕-G10号、LQ〔2022〕-G14号、LQ〔2022〕-G16号）">临泉县国有土地使用权出让结果公告(LQ〔2020〕-G3...</a></li>
+                            <li><span>2022-07-05</span><a href="/content/detail/62c3af2288668880778b4574.html" target="_blank" title="2022年6月份新增领取城乡居民基本养老保险养老金人员公示">2022年6月份新增领取城乡居民基本养老保险养老金人员公...</a></li>
+                            <li><span>2022-07-05</span><a href="/content/detail/62c3ad248866887d768b4567.html" target="_blank" title="温馨提示">温馨提示</a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <div class="m-reprint f-md-ha">
+                                    <div class="m-reprinttit">
+                                        <a href="http://www.gov.cn/pushinfo/v150203/index.htm" target="_blank">[中央政府网站内容推荐]</a>
+                                        <a href="http://www.gov.cn/zhengce/index.htm" target="_blank">[国务院政策文件]</a>
+                                    </div>
+                                    <ul class="j-govpushinfo" data-num="3" data-length="35"></ul>
+                                </div>
+                                <div class="m-reprint f-md-ha">
+                                    <div class="m-reprinttit">
+                                        <a href="http://www.ah.gov.cn/pushinfo/index.html" target="_blank">[省政府网站内容推荐]</a>
+                                        <a href="http://www.ah.gov.cn/public/column/1681?type=4&amp;catId=6708461&amp;action=list" target="_blank">[省政府政策文件]</a>
+                                    </div>
+                                    <ul class="j-ahpushinfo" data-num="3" data-length="35"></ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="nqxq">
-                            <h4>南泉校区</h4>
-                            <p>
-                                地址：重庆市巴南区南泉街道白鹤林16号
-                            </p>
-                            <p>电话：023-62846626； 023-62846636</p>
-                            <p>邮编：400056</p>
+                        <div class="m-hmbtns">
+                            <ul class="row f-mlrf6">
+                                <li class="col-xs-6 col-md-4 f-plr6">
+                                    <a href="/content/channel/58993314ceab069d3282f6b5/" target="_blank">
+                                        <span class="iconfont">&#xe009;</span>
+                                        <p>图片新闻</p>
+                                    </a>
+                                </li>
+                                <li class="col-xs-6 col-md-4 f-plr6">
+                                    <a href="/content/channel/589931deceab068b3282f6b5/" target="_blank">
+                                        <span class="iconfont">&#xe015;</span>
+                                        <p>视频新闻</p>
+                                    </a>
+                                </li>
+                                <li class="col-xs-6 col-md-4 f-plr6">
+                                    <a href="/content/channel/607d3fd58866882d308b4569/" target="_blank">
+                                        <span class="iconfont">&#xe016;</span>
+                                        <p>创优营商环境为企服务</p>
+                                    </a>
+                                </li>
+                                <!-- <li class="col-xs-6 col-md-3 f-plr6">
+                                    <a href="http://www.lqxww.com/" target="_blank">
+                                        <span class="iconfont">&#xe017;</span>
+                                        <p>临泉新闻网</p>
+                                    </a>
+                                </li> -->
+                            </ul>
                         </div>
-                        <div class="sqxq">
-                            <h4>双桥校区</h4>
-                            <p>地址：重庆市双桥经济开发区龙水湖西湖大道76号</p>
-                            <p>电话：023-62846626； 023-62846636</p>
-                            <p>邮编：400900</p>
-                        </div>
-                        <div class="foot-wx">
-                            <img src="/resources/style/pc/images/newicon/ewm.png" alt="">
-                        </div>
-                    </div>
-                    <div class="foot-main-bottom">
-                        Copyright 重庆工程学院 版权所有
-                    </div>
-
+                    </section>
                 </div>
+                <section class="m-ctadv f-mb25 f-md-mb10 f-pr f-oh c-shine">
+                    <div class="bd">
+						<ul>
+							<li>
+								<a href="https://www.linquan.gov.cn/cysz/?_id=5f03d6557f8b9ac0648b456a" title="" ><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202204/20220415150744131183_a4L3VmFL.png" alt=""></a>
+							</li>
+							<li>
+								<a href="http://www.linquan.gov.cn/special/template/?_id=5efab9487f8b9a51478b4578" title="" ><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202105/202105111157085817_O6VKwgYQ.png" alt=""></a>
+							</li>
+						</ul>
+					</div>
+                </section>
+                <div class="g-hmqs row">
+                    <div class="col-md-4 f-bdr f-mb20 f-md-mb15">
+                        <div class="u-qstit f-mb10">
+                            <a href="/xxgkGuide/?branch_id=58d105f0f85d105553ef43e4" target="_blank">政府信息公开</a>
+                        </div>
+                        <div class="m-openlists f-md-ha">
+                            <div class="m-tabstyle1 f-clearfix f-mb10 tit-switch">
+                                <ul>
+                                    <li class="u-active"><a href="/xxgkBranch/" target="_blank">最新公开<em></em></a></li>
+                                    <li><a href="/xxgkContent/?branch_id=58d105f0f85d105553ef43e4&column_code=1000000" target="_blank">政策文件<em></em></a></li>
+                                    <li><a href="/xxgkContent/?branch_id=58d105f0f85d105553ef43e4&column_code=13000000" target="_blank">政府会议<em></em></a></li>
+                                    <li><a href="/xxgkContent/?branch_id=58d105f0f85d105553ef43e4&column_code=150000" target="_blank">财政资金<em></em></a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch">
+                                <ul>
+                                    <li><span>2022-07-07</span><a href="/xxgk/detail/62c6bd078866888f018b4587.html" title="关于对县政协十一届一次会议第184号提案（建议）的答复" target="_blank">关于对县政协十一届一次会议第184号提案（建议）的答复</a></li>
+                                    <li><span>2022-07-07</span><a href="/xxgk/detail/62c6bd1288668890068b4570.html" title="关于对县政协十一届一次会议第184号提案（建议）的答复" target="_blank">关于对县政协十一届一次会议第184号提案（建议）的答复</a></li>
+                                    <li><span>2022-07-07</span><a href="/xxgk/detail/62c6bcdf8866885d098b4567.html" title="关于对县政协十一届一次会议第50号提案（建议）的答复" target="_blank">关于对县政协十一届一次会议第50号提案（建议）的答复</a></li>
+                                    <li><span>2022-07-07</span><a href="/xxgk/detail/62c6bd1388668890068b4573.html" title="关于对县政协十一届一次会议第50号提案（建议）的答复" target="_blank">关于对县政协十一届一次会议第50号提案（建议）的答复</a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul>
+                                    <li><span>2022-07-07</span><a href="/xxgk/detail/62c692e488668862658b4572.html" title="2022年5-6月规范性文件备案登记情况" target="_blank">2022年5-6月规范性文件备案登记情况</a></li>
+                                    <li><span>2022-05-07</span><a href="/xxgk/detail/629467ec88668817688b456b.html" title="2022年3-4月规范性文件备案登记情况" target="_blank">2022年3-4月规范性文件备案登记情况</a></li>
+                                    <li><span>2022-05-02</span><a href="/xxgk/detail/62a1c29d8866888e188b456f.html" title="临泉县2022年第一季度规范性文件合法性审查开展情况" target="_blank">临泉县2022年第一季度规范性文件合法性审查开展情况</a></li>
+                                    <li><span>2022-04-01</span><a href="/xxgk/detail/626b46668866885d0b8b4568.html" title="关于印发临泉县12345政府服务热线办理办法的通知 " target="_blank">关于印发临泉县12345政府服务热线办理办法的通知 </a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul>
+                                    <li><span>2022-07-05</span><a href="/xxgk/detail/62c6a401886688be738b456b.html" title="关于临泉县政府全体会议召开的情况说明" target="_blank">关于临泉县政府全体会议召开的情况说明</a></li>
+                                    <li><span>2022-07-02</span><a href="/xxgk/detail/62c23542886688b8358b4570.html" title="【其他会议】江利国主持召开县政府党组会议" target="_blank">【其他会议】江利国主持召开县政府党组会议</a></li>
+                                    <li><span>2022-06-23</span><a href="/xxgk/detail/62b586ce8866886a208b456c.html" title="【其他会议】县政府第一次廉政工作会议召开" target="_blank">【其他会议】县政府第一次廉政工作会议召开</a></li>
+                                    <li><span>2022-06-22</span><a href="/xxgk/detail/62b586ce8866886a208b456d.html" title="【常务会议】江利国主持召开县政府第8次常务会议" target="_blank">【常务会议】江利国主持召开县政府第8次常务会议</a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul>
+                                    <li><span>2022-07-06</span><a href="/xxgk/detail/62c53286886688ea3c8b4573.html" title="临泉县农业农村局2022年财政专项资金清单" target="_blank">临泉县农业农村局2022年财政专项资金清单</a></li>
+                                    <li><span>2022-07-06</span><a href="/xxgk/detail/62c5332b8866884e3e8b4569.html" title="临泉县农业农村局2022年财政专项资金清单" target="_blank">临泉县农业农村局2022年财政专项资金清单</a></li>
+                                    <li><span>2022-07-06</span><a href="/xxgk/detail/62c53286886688ea3c8b4574.html" title="临泉县2022年耕地地力保护补贴汇总表" target="_blank">临泉县2022年耕地地力保护补贴汇总表</a></li>
+                                    <li><span>2022-07-06</span><a href="/xxgk/detail/62c533c0886688853e8b456e.html" title="临泉县2022年耕地地力保护补贴汇总表" target="_blank">临泉县2022年耕地地力保护补贴汇总表</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        		<!-- 政策文件库图片链接 -->
+                        <a target="_blank" style="margin-bottom: 15px; display: block; width: 100%;" href="/policyContent/">
+                            <img style="width: 100%;" src="../static/images/pic-wjk.jpg" alt="">
+                        </a>
+                        <div class="m-openicons f-pr f-oh f-mb25 f-md-mb15">
+                            <div class="bd">
+                                <ul>
+                                    <li>
+                                        <a href="/xxgkContent/?branch_id=58d105f0f85d105553ef43e4&column_code=2000000" target="_blank">
+                                            <span class="iconfont">&#xe011;</span>
+                                            <p>政府领导</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/jgzn/" target="_blank">
+                                            <span class="iconfont">&#xe012;</span>
+                                            <p>政府机构</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/xxgkContent/?branch_id=58d105f0f85d105553ef43e4&column_code=140000" target="_blank">
+                                            <span class="iconfont">&#xe013;</span>
+                                            <p>人事信息</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/opennessPoint/" target="_blank">
+                                            <span class="iconfont">&#xe014;</span>
+                                            <p>重点领域</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hd">
+                                <a class="prev"></a>
+                                <a class="next"></a>
+                            </div>
+                        </div>
+                        <div class="m-openthumbs f-pr f-oh f-mb20 f-md-mb15">
+                            <div class="bd">
+                                <ul>
+                                    <li>
+                                        <a href="/opennessFive/" title="" target="_blank">
+                                            <img src="../static/images/pic-opt1.png" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="hd">
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="m-openbtns f-oh f-md-ha">
+                            <h1>政府信息公开</h1>
+                            <ul class="row f-mlrf5">
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/xxgkGuide/?branch_id=58d105f0f85d105553ef43e4" title="" target="_blank">政府信息公开指南</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/xxgkAnnualReport/yearReport/?year=2021" title="政府信息公开年报" target="_blank">政府信息公开年报</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/xxgkRules/?branch_id=58d105f0f85d105553ef43e4" title="政府信息公开制度" target="_blank">政府信息公开制度</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/xxgkGuide/?branch_id=58d105f0f85d105553ef43e4" title="法定主动公开内容" target="_blank">法定主动公开内容</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/xxgkRequest/?type=0&branch_id=58d105f0f85d105553ef43e4" title="依申请公开" target="_blank">依申请公开</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/gazette/" title="政府公报" target="_blank">政府公报</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/xxgkContent/?branch_id=58d105f0f85d105553ef43e4&column_code=12000000" title="政府工作报告" target="_blank">政府工作报告</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/xxgkContent/?branch_id=58d105f0f85d105553ef43e4&column_code=350000" title="政府网站工作年报" target="_blank">政府网站工作年报</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 f-bdr f-mb20 f-md-mb15">
+                        <div class="u-qstit f-mb10">
+                            <a href="/interaction/" target="_blank">互动交流</a>
+                        </div>
+                        <div class="m-interlists f-md-ha">
+                            <div class="m-tabstyle1 f-clearfix f-mb10 tit-switch">
+                                <ul>
+                                    <li class="u-active"><a href="/letter/?source=WZ" target="_blank">信件选登<em></em></a></li>
+                                    <li><a href="http://bbs.linquan.gov.cn/" target="_blank">百姓畅言<em></em></a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch">
+                                <ul>
+                                    <li><span>2022-07-06</span><a href="/letter/detail/7af449a1-61ad-43ed-8f85-4a4cad1a6a92.html?type=mayor" title="港口南路与霞光大道交叉口南侧道路下雨积水" target="_blank">港口南路与霞光大道交叉口南侧道路下雨积水</a></li>
+                                    <li><span>2022-07-06</span><a href="/letter/detail/5bf5ff9c-a0b7-4f07-99c9-dfa939b9cd8b.html?type=mayor" title="临泉一中到初中学校拉学生收费补课" target="_blank">临泉一中到初中学校拉学生收费补课</a></li>
+                                    <li><span>2022-07-06</span><a href="/letter/detail/343cefe3-cd09-4ab1-a1c8-56c0187cf784.html?type=mayor" title="免费自习室" target="_blank">免费自习室</a></li>
+                                    <li><span>2022-07-06</span><a href="/letter/detail/ad14c6cf-61b8-4484-ba6a-ff9dbeb01437.html?type=mayor" title="咨询修路事件" target="_blank">咨询修路事件</a></li>
+                                    <li><span>2022-07-06</span><a href="/letter/detail/23ab4129-8bd9-4cf3-8fca-e5b8af4ccf8b.html?type=mayor" title="帮助希朗英语学生家长追回应退资金" target="_blank">帮助希朗英语学生家长追回应退资金</a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul>
+                                    <li><span>2022-07-06</span><a href="http://bbs.linquan.gov.cn/thread/detail/62c4f1b6b473a155698b4567.html" title="和煦苑8栋水压过低" target="_blank">和煦苑8栋水压过低</a></li>
+                                    <li><span>2022-06-30</span><a href="http://bbs.linquan.gov.cn/thread/detail/62bd604cb473a11c688b4569.html" title="关于海亮华府小区卫生无人打扫的问题" target="_blank">关于海亮华府小区卫生无人打扫的问题</a></li>
+                                    <li><span>2022-07-03</span><a href="http://bbs.linquan.gov.cn/thread/detail/62c1647ab573a157248b4567.html" title="迎仙镇改名咨询" target="_blank">迎仙镇改名咨询</a></li>
+                                    <li><span>2022-06-29</span><a href="http://bbs.linquan.gov.cn/thread/detail/62bbcd02b573a120668b4567.html" title="半夜扰民困扰一直解决不了" target="_blank">半夜扰民困扰一直解决不了</a></li>
+                                    <li><span>2022-07-03</span><a href="http://bbs.linquan.gov.cn/thread/detail/62c2496cb573a1e9418b456b.html" title="融信海亮华府小区充电桩的问题" target="_blank">融信海亮华府小区充电桩的问题</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="m-interbtns1">
+                            <ul class="row f-mlrf5">
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/supervision/write/?product_id=4" title="我要写信" target="_blank"><span class="iconfont">&#xe022;</span>我要写信</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/letter/?source=WZ" title="信件查询" target="_blank"><span class="iconfont">&#xe019;</span>信件查询</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="m-interthumbs f-pr f-oh f-mb10">
+                            <div class="bd">
+                                <ul>
+                                    <li>
+                                        <a href="/interaction/" title="" target="_blank">
+                                            <img src="../static/images/pic-int1.png" alt="">
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="" title="" target="_blank">
+                                            <img src="/media/images/home/pic-int1.png" alt="">
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                            <div class="hd">
+                                <ul>
+                                    <!-- <li></li> -->
+                                    <!-- <li></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="m-interzjdc f-oh f-md-ha">
+                            <div class="m-tabstyle1 f-clearfix f-mb10 tit-switch">
+                                <ul>
+                                    <li class="u-active"><a href="/interactionColl/all/" target="_blank">征集调查<em></em></a></li>
+                                   <!--  <li><a href="/interactionVote/" target="_blank">在线调查<em></em></a></li> -->
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch">
+                                <ul>
+                                    <li><span class="c-jxz"></span><span><b style='color:#999;font-weight:normal' >【已结束】</b></span><a href="/interactionVote/detail/6285f8e7886688995a8b456d.html" target="_blank" title="新修订的《中华人民共和国政府信息公开条例》（国令第711号）实施三周年调查问卷">新修订的《中华人民共和国政府信息公开条例》（国令第711号）实施三周年调查问卷</a></li>
+                                    <li><span class="c-jxz"></span><span><b style='color:#999;font-weight:normal' >【已结束】</b></span><a href="/interactionVote/detail/6257957a88668803168b456a.html" target="_blank" title="防疫知识问卷调查">防疫知识问卷调查</a></li>
+                                    <li><span class="c-jxz"></span><span><b style='color:#999;font-weight:normal' >【已结束】</b></span><a href="/interactionVote/detail/61d10128886688dc658b456b.html" target="_blank" title="关于非标电动三、四轮车整治调查问卷">关于非标电动三、四轮车整治调查问卷</a></li>
+                                    <li><span class="c-jxz"></span><span><b style='color:#999;font-weight:normal' >【已结束】</b></span><a href="/interactionColl/detail/nocache/6213390988668874248b4567.html" target="_blank" title="关于征询社会公众和企业对《临泉县开展亩均效益评价推进工业高质量发展实施方案（试行）（征求意见稿）》意见的公告">关于征询社会公众和企业对《临泉县开展亩均效益评价推进工业高质量发展实施方案（试行）（征求意见稿）》意见的公告</a></li>
+                                    <li><span class="c-jxz"></span><span><b style='color:#999;font-weight:normal' >【已结束】</b></span><a href="/interactionVote/detail/61a480fb8866882e778b4568.html" target="_blank" title="宪法宣传周调查问卷">宪法宣传周调查问卷</a></li>
+                                    <li><span class="c-jxz"></span><span><b style='color:#999;font-weight:normal' >【已结束】</b></span><a href="/interactionColl/detail/nocache/61de9481886688124a8b4567.html" target="_blank" title="关于征询社会公众对《临泉县电动车综合整治方案（征求意见稿）》 意见的公告">关于征询社会公众对《临泉县电动车综合整治方案（征求意见稿）》 意见的公告</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="m-interbtns2 f-oh">
+                            <ul class="row f-mlrf5">
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/interactionLive/" title="在线访谈" target="_blank"><span class="iconfont">&#xe020;</span>在线访谈</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="/znhd/" title="答问知识库" target="_blank"><span class="iconfont">&#xe021;</span>答问知识库</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="http://wsxf.ahxfj.gov.cn/pl-ws-web/index.do?code=3412210000001000000000" title="网上信访" target="_blank"><span class="iconfont">&#xe018;</span>网上信访</a>
+                                </li>
+                                <li class="col-xs-6 f-plr5">
+                                    <a href="http://anhui.12388.gov.cn/fuyangshi/" title="网上举报" target="_blank"><span class="iconfont">&#xe023;</span>网上举报</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 f-mb20 f-md-mb15">
+                        <div class="u-qstit f-mb10">
+                            <a href="/bsfw/" target="_blank">办事服务</a>
+                        </div>
+                        <div class="m-servicegrps">
+                            <div class="m-tabstyle1 f-clearfix f-mb15 f-md-mb10 tit-switch">
+                                <ul class="f-fl">
+                                    <li class="u-active"><a href="https://www.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=P" target="_blank">个人服务<em></em></a></li>
+                                    <li><a href="https://www.ahzwfw.gov.cn/bog-bsdt/static/workProcess.html?subjecttype=C" target="_blank">法人服务<em></em></a></li>
+                                </ul>
+                                <a class="u-xzqh f-fr" data-toggle="modal" data-target="#depService">切换乡镇与部门</a>
+                            </div>
+                            <div class="g-servicegrps list-switch">
+                                <div class="m-sertabs f-clearfix tit-switch">
+                                    <ul>
+                                        <li class="u-active"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=hot&ztmb=" target="_blank">热门服务</a></li>
+                                        <li><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=" target="_blank">主题服务</a></li>
+                                    </ul>
+                                </div>
+                                <div class="g-servicebtns list-switch">
+                                    <ul class="row f-mlrf5">
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-jycy.png" alt="">
+                                                <p>就业创业</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=60&subjecttype=P&childName=%u9AD8%u6821%u6BD5%u4E1A" target="_blank">高校毕业</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=68&subjecttype=P&childName=%u4EBA%u4E8B%u6863%u6848" target="_blank">人事档案</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=65&subjecttype=P&childName=%u5931%u4E1A%u5C31%u4E1A" target="_blank">失业就业</a></dt>
+                                                <!-- <dt><a href="/bsfw/hot/?hotCode=64&subjecttype=P&childName=考试鉴定" target="_blank">考试鉴定</a></dt> -->
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-shbz.png" alt="">
+                                                <p>社会保障</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=10&subjecttype=P&childName=社保卡" target="_blank">社保卡</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=12&subjecttype=P&childName=医疗保险" target="_blank">医疗保险</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=11&subjecttype=P&childName=综合查询" target="_blank">综合查询</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=13&subjecttype=P&childName=失业保险" target="_blank">失业保险</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-jyks.png" alt="">
+                                                <p>教育考试</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=85&subjecttype=P&childName=成人" target="_blank">成人</a></dt>
+                                                <!-- <dt><a href="/bsfw/hot/?hotCode=84&subjecttype=P&childName=高校毕业" target="_blank">高校毕业</a></dt> -->
+                                                <dt><a href="/bsfw/hot/?hotCode=81&subjecttype=P&childName=小学" target="_blank">小学</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=82&subjecttype=P&childName=初中" target="_blank">初中</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-jtcx.png" alt="">
+                                                <p>交通出行</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=30&subjecttype=P&childName=交通违法" target="_blank">交通违法</a></dt>
+                                                <!-- <dt><a href="/bsfw/hot/?hotCode=33&subjecttype=P&childName=出行帮助" target="_blank">出行帮助</a></dt> -->
+                                                <dt><a href="/bsfw/hot/?hotCode=31&subjecttype=P&childName=驾驶证" target="_blank">驾驶证</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=32&subjecttype=P&childName=行驶证" target="_blank">行驶证</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-hysy.png" alt="">
+                                                <p>婚姻生育</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=70&subjecttype=P&childName=婚姻登记" target="_blank">婚姻登记</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=71&subjecttype=P&childName=计划生育" target="_blank">计划生育</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=72&subjecttype=P&childName=生育补助" target="_blank">生育补助</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-hz.png" alt="">
+                                                <p>户政</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=40&subjecttype=P&childName=身份证" target="_blank">身份证</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=41&subjecttype=P&childName=新生儿" target="_blank">新生儿</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=42&subjecttype=P&childName=户口迁移" target="_blank">户口迁移</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=43&subjecttype=P&childName=户口本" target="_blank">户口本</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-sffw.png" alt="">
+                                                <p>司法服务</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=90&subjecttype=P&childName=公证鉴定" target="_blank">公证鉴定</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=91&subjecttype=P&childName=法律服务" target="_blank">法律服务</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=92&subjecttype=P&childName=案件查询" target="_blank">案件查询</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-zfgf.png" alt="">
+                                                <p>租房购房</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=50&subjecttype=P&childName=住房保障" target="_blank">住房保障</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=51&subjecttype=P&childName=买卖房产" target="_blank">买卖房产</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=52&subjecttype=P&childName=房屋租赁" target="_blank">房屋租赁</a></dt>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="g-servicelis m-scrollbar list-switch f-dn">
+                                    <ul class="row f-mlrf7">
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=25" title="" target="_blank">生育收养</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=33" title="" target="_blank">户籍办理</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=22" title="" target="_blank">民族宗教</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=26" title="" target="_blank">教育科研</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=27" title="" target="_blank">入伍服役</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=28" title="" target="_blank">就业创业</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=29" title="" target="_blank">设立变更</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=30" title="" target="_blank">准营准办</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=31" title="" target="_blank">抵押质押</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=32" title="" target="_blank">职业资格</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=43" title="" target="_blank">行政缴费</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=47" title="" target="_blank">婚姻登记</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=44" title="" target="_blank">优待抚恤</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=45" title="" target="_blank">规划建设</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=P&serviceType=theme&ztmb=14" title="" target="_blank">住房保障</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="g-servicegrps list-switch f-dn">
+                                <div class="m-sertabs f-clearfix tit-switch">
+                                    <ul>
+                                        <li class="u-active"><a href="/bsfw/ServiceGroup/?serviceObject=C" target="_blank">热门服务</a></li>
+                                        <li><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=" target="_blank">主题服务</a></li>
+                                    </ul>
+                                </div>
+                                <div class="g-servicebtns list-switch">
+                                    <ul class="row f-mlrf5">
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-qykb.png" alt="">
+                                                <p>企业开办</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=10&subjecttype=C&childName=设立登记" target="_blank">设立登记</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=11&subjecttype=C&childName=名称校准" target="_blank">名称校准</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=12&subjecttype=C&childName=税务登记" target="_blank">税务登记</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-qybg.png" alt="">
+                                                <p>企业变更</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=20&subjecttype=C&childName=变更登记" target="_blank">变更登记</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-gqcz.png" alt="">
+                                                <p>股权出资</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <!-- <dt><a href="/bsfw/hot/?hotCode=70&subjecttype=C&childName=设立登记" target="_blank">设立登记</a></dt> -->
+                                                <!-- <dt><a href="/bsfw/hot/?hotCode=71&subjecttype=C&childName=变更登记" target="_blank">变更登记</a></dt> -->
+                                                <dt><a href="/bsfw/hot/?hotCode=72&subjecttype=C&childName=注销撤销登记" target="_blank">注销撤销登记</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-qyzx.png" alt="">
+                                                <p>企业注销</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=30&subjecttype=C&childName=企业注销" target="_blank">企业注销</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-qyns.png" alt="">
+                                                <p>企业纳税</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=50&subjecttype=C&childName=企业纳税" target="_blank">企业纳税</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-zljg.png" alt="">
+                                                <p>质量监管</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=80&subjecttype=C&childName=特种设备" target="_blank">特种设备</a></dt>
+                                                <!-- <dt><a href="/bsfw/hot/?hotCode=81&subjecttype=C&childName=标准备案" target="_blank">标准备案</a></dt> -->
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-flbt.png" alt="">
+                                                <p>福利补贴</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=40&subjecttype=C&childName=职工社保" target="_blank">职工社保</a></dt>
+                                                <!-- <dt><a href="/bsfw/hot/?hotCode=41&subjecttype=C&childName=职工公积金" target="_blank">职工公积金</a></dt> -->
+                                                <!-- <dt><a href="/bsfw/hot/?hotCode=42&subjecttype=C&childName=职工福利" target="_blank">职工福利</a></dt> -->
+                                                <dt><a href="/bsfw/hot/?hotCode=43&subjecttype=C&childName=企业补贴" target="_blank">企业补贴</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-qyxy.png" alt="">
+                                                <p>企业信用</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <!-- <dt><a href="/bsfw/hot/?hotCode=90&subjecttype=C&childName=信用公示" target="_blank">信用公示</a></dt> -->
+                                                <dt><a href="/bsfw/hot/?hotCode=91&subjecttype=C&childName=信用查询" target="_blank">信用查询</a></dt>
+                                            </dl>
+                                        </li>
+                                        <li class="col-xs-4 f-plr5">
+                                            <a href="javascript:;">
+                                                <img src="../static/images/icon-gsba.png" alt="">
+                                                <p>公司备案</p>
+                                            </a>
+                                            <dl class="f-dn f-clearfix">
+                                                <dt><a href="/bsfw/hot/?hotCode=60&subjecttype=C&childName=机构备案" target="_blank">机构备案</a></dt>
+                                                <dt><a href="/bsfw/hot/?hotCode=61&subjecttype=C&childName=经营许可备案" target="_blank">经营许可备案</a></dt>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="g-servicelis m-scrollbar list-switch f-dn">
+                                    <ul class="row f-mlrf7">
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=1" title="" target="_blank">设立变更</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=3" title="" target="_blank">年检年审</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=31" title="" target="_blank">税收财务</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=32" title="" target="_blank">准营准办</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=33" title="" target="_blank">投资审批</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=10" title="" target="_blank">资质认证</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=34" title="" target="_blank">融资信贷</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=35" title="" target="_blank">抵押质押</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=36" title="" target="_blank">商务贸易</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=37" title="" target="_blank">招标拍卖</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=38" title="" target="_blank">社会保障</a></li>
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=39" title="" target="_blank">人力资源</a></li>
+                                        <!-- <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=40" title="" target="_blank">海关口岸</a></li> -->
+                                        <!-- <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=41" title="" target="_blank">涉外服务</a></li> -->
+                                        <li class="col-xs-6 f-plr7"><a href="/bsfw/ServiceGroup/?serviceObject=C&serviceType=theme&ztmb=16" title="" target="_blank">农林牧渔</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-serbtns">
+                            <ul class="row f-mlrf5">
+                                <li class="col-xs-4 f-plr5"><a href="https://www.ahzwfw.gov.cn/bog-bsdt/static/energySupervision.html" target="_blank">效能监督</a></li>
+                                <li class="col-xs-4 f-plr5"><a href="http://fy.ahzwfw.gov.cn/bog-bsdt/static/specialService.html" target="_blank">特色服务</a></li>
+                                <li class="col-xs-4 f-plr5"><a href="http://fy.ahzwfw.gov.cn/bog-bsdt/static/sunshine-government.html" target="_blank">阳光政务</a></li>
+                            </ul>
+                        </div>
+                        <div class="m-serrmtj f-mb10">
+                            <div class="m-titstyle1 f-clearfix f-mb15">
+                                <a class="u-tit f-fl" href="https://www.ahzwfw.gov.cn/bog-bsdt/static/index.html" target="_blank">热门推荐</a>
+                            </div>
+                            <div class="g-serrmtj f-pr">
+                                <div class="bd">
+                                    <ul>
+                                        <li>
+                                            <a href="http://fy.ahzwfw.gov.cn/bog-bsdt/static/yqfkzt.html" target="_blank">
+                                                <img src="../static/images/icon-yqztfw.png" alt="">
+                                                <p>疫情专题服务</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://fy.ahzwfw.gov.cn/bog-bsdt/static/themeIntegServices.html" target="_blank">
+                                                <img src="../static/images/icon-ztjcfw.png" alt="">
+                                                <p>主题集成服务</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="hd">
+                                    <a class="prev"></a>
+                                    <a class="next"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-serlists f-oh f-md-ha">
+                            <div class="m-tabstyle1 f-clearfix f-mb5 tit-switch">
+                                <ul>
+                                    <li class="u-active"><a href="https://www.ahzwfw.gov.cn/bog-bsdt/static/serviceCenter.html" target="_blank">社会服务<em></em></a></li>
+                                    <li><a href="http://fy.ahzwfw.gov.cn/bog-bsdt/static/ssyf.html" target="_blank">利企服务<em></em></a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch">
+                                <ul>
+                                    <li><a href="https://www.ahzwfw.gov.cn/bog-bsdt/static/medicalInsuranceInquiry.html" title="出具《参保凭证》" target="_blank">出具《参保凭证》</a></li>
+                                    <li><a href="http://61.190.31.166:10001/ggfwwt/power/loadIframePage?powerId=FW201712011128000005352420&iFrame_url=http://61.190.31.166:10002/ggfwwt-grwt/grbs/cxjmyl/sbjlcx.html&channel=2&areaId=3499" title="
+                                        居民基本养老保险申报记录查询" target="_blank">
+                                        居民基本养老保险申报记录查询</a></li>
+                                    <li><a href="http://61.190.31.166:10001/ggfwwt/power/loadIframePage?powerId=FW201710191938000036538310&iFrame_url=http://61.190.31.166:10002/ggfwwt-grwt/grbs/cxjmyl/jfxx.html&channel=2&areaId=3499" title="
+                                        居民基本养老保险个人缴费信息查询" target="_blank">
+                                        居民基本养老保险个人缴费信息查询</a></li>
+                                </ul>
+                            </div>
+                            <div class="m-liststyle1 list-switch f-dn">
+                                <ul>
+                                    <li><a href="http://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/components/applicationMaterial.html?ssqdCode=38422668a8d9469b96b6f4c2ee5ac114" title="食品经营许可证核发" target="_blank">食品经营许可证核发</a></li>
+                                    <li><a href="http://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/components/applicationMaterial.html?ssqdCode=1839d421be67425ebc25161b65e8703d" title="对纳税人延期申报的核准" target="_blank">对纳税人延期申报的核准</a></li>
+                                    <li><a href="http://fy.ahzwfw.gov.cn/bog-bsdt/static/workProcess/components/applicationMaterial.html?ssqdCode=881e8c7597eb4bf4bbbf340b6b63300b" title="开具税收完税证明" target="_blank">开具税收完税证明</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-special f-pr">
+                    <a class="u-tit f-pa f-db" href="/special/" target="_blank">
+                        <img class="f-db" src="/media/images/home/tit-special.png" alt="">
+                    </a>
+                    <div class="g-special f-pr">
+                        <div class="bd">
+                            <ul>
+                                <li><a href="https://www.linquan.gov.cn/xxgkContent/?branch_id=58d105f0f85d105553ef439c&column_code=390000" target="_blank" title="亩均效益评价"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202206/20220628170551173813_tIfUcstX.jpg"></a></li>
+                                <li><a href="http://www.linquan.gov.cn/cysz/?_id=5f03d6557f8b9ac0648b456a" target="_blank" title="创优营商环境为企服务"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202204/20220401093059124442_OYlk658l.png"></a></li>
+                                <li><a href="http://www.linquan.gov.cn/fourteenPlan/" target="_blank" title="规划信息专题"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202112/2021121617043670631_2C58xcef.jpg"></a></li>
+                                <li><a href="http://www.linquan.gov.cn/highQuality/" target="_blank" title="高标准市场体系建设专题"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202112/2021121617103870647_sYkX81E2.png"></a></li>
+                                <li><a href="/special/column/?_id=5f03d3497f8b9a4a638b4571" target="_blank" title="临泉县“六稳”“六保”专栏"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202012/2020121510384316868_GHgxGAG0.jpg"></a></li>
+                                <li><a href="/special/column/?_id=61af26e08866880f3d8b4568" target="_blank" title="双招双引专题"><img src="http://file.fy.gov.cn//543740479a05c26f4be2861a/202110/2021102617592040555_Wv2mOUZ4.jpg"></a></li>
+                                <li><a href="http://www.wenming.cn/specials/zxdj/xzsjhwm_43255/" target="_blank" title="网络文明建设"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202111/2021110515304645110_TGfdokgV_600x218.jpg"></a></li>
+                                <li><a href="http://www.cac.gov.cn/index.htm" target="_blank" title="网络法治建设"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202111/2021110515284945108_ZK3fBNNy_600x218.jpg"></a></li>
+                                <li><a href="/special/column/?_id=5efab9487f8b9a51478b4578" target="_blank" title="统筹推进疫情防控和经济社会发展"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202012/2020121510512116898_5lems1cT.jpg"></a></li>
+                                <li><a href="http://www.linquan.gov.cn/xxgkContent/?branch_id=58d105f0f85d105553ef43e4&column_code=470000" target="_blank" title="财政资金直达基层专栏"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202104/202104090926138093_FWGG4W01.jpg"></a></li>
+                                <li><a href="http://www.linquan.gov.cn/xqFinance/" target="_blank" title="临泉县财政预决算与三公经费公开专题专栏"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202102/2021020516360024854_CFJ0HEBY.jpg"></a></li>
+                                <li><a href="/special/column/?_id=5fe2fe8a7f8b9a101f8b4576" target="_blank" title="临泉县深化“放管服”改革工作专题"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202012/202012231622555687_b5guKpNC.jpg"></a></li>
+                                <li><a href="/special/column/?_id=5fe2fd207f8b9ae91e8b4569" target="_blank" title="临泉县突发公共卫生信息专题"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202012/202012231617005676_YwxpTYln.jpg"></a></li>
+                                <li><a href="/jcsd/" target="_blank" title="临泉县全面推进基层政务公开标准化规范化工作专题"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202012/2020121510153216798_cxxL7KgU.jpg"></a></li>
+                                <li><a href="http://www.linquan.gov.cn/opennessContent/?branch_id=58d105f0f85d105553ef43e4&column_code=350000" target="_blank" title="政府网站工作年报"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/201904/20190408115516263_5gq6cSxJ.jpg"></a></li>
+                                <li><a href="/special/column/?_id=5c6b58277f8b9a012e8b45a8" target="_blank" title="电子商务进农村"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/201903/2019031814312815655_MIGD6VrV.jpg"></a></li>
+                                <li><a href="http://www.linquan.gov.cn/xxgkContent/?branch_id=58d105f0f85d105553ef437a&column_code=123001001" target="_blank" title="临泉县农机购置补贴信息公开专栏"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202012/202012301714594582_13x8xbCy.jpg"></a></li>
+                                <li><a href="/gazette/" target="_blank" title="政府公报"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/202001/202001031617407711_ZqLRAGlX.jpg"></a></li>
+                                <li><a href="/special/column/?_id=5c63e4457f8b9aa9488b456c" target="_blank" title="回应关切专题"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/201903/2019031814441915665_FNh3uc2h.jpg"></a></li>
+                                <li><a href="/special/column/?_id=5bf4f63a4daee3a77e1ed0e6" target="_blank" title="新闻发布会专题"><img src="http://file.fy.gov.cn//58981c8bceab06a93382f6b5/201903/2019031815390715752_OLoDxrkc.jpg"></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="hd">
+                            <a class="prev"  href="javascript:;"></a>
+                            <a class="next"  href="javascript:;"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endblock %}
+    </div>
+    <!--主体 end-->
 
+    <!--底部 on-->
+     <div class="is-footer">
+
+	<div class="m-footer bg">
+		<div class="container f-pr">
+			<div class="m-ftfuns text-center">
+				<a href="/sitemap/" target="_blank">站点地图</a> |
+				<a href="/content/channel/58be4a84ceab06c33f9a6fa2/" target="_blank">隐私声明</a> |
+				<a href="/content/channel/58be4a97ceab06ef3f9a6fa2/" target="_blank">使用帮助</a> |
+				<a href="/content/channel/58be4aa8ceab06fa3f9a6fa2/" target="_blank">联系我们</a> |
+				<a class="refer">页面纠错</a>
+			</div>
+			<div class="m-copyright text-center zt">
+				<img src="/media/images/public/ga.png" alt=""> 皖公网安备 34122102000001号</a>&nbsp;&nbsp;</p>
+				<p>网站运维电话：0558-6521560（仅受理网站建设维护相关事宜）&nbsp;&nbsp;E-mail：lqxzfwz@163.com&nbsp;&nbsp;本站已支持IPv6访问 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275844076'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1275844076%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></p>
+			</div>
+			<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/13/201/1545/40674599/CA132011545406745990001.js' type='text/javascript'%3E%3C/script%3E"));</script>
+			<div class="j-jiucuo" id="_span_jiucuo" data-setting="{sitecode:3412210029}">
+				<a href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=3412210029&url=https%3A%2F%2Fwww.linquan.gov.cn%2F" target="_blank" data-outer="1">
+					<img src="../static/images/pic-jiucuo.png">
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!--底部 end-->
+<!--右侧悬浮 on-->
+
+<script type="text/javascript" src="/nocache/logged"></script>
+<script src="/media/js/traditional.js"></script>
+<script src="/media/js/WXA11Y/WXA11yInit.js" id="WXA11Y" c="/media/js/WXA11Y/" u="/" y="www.linquan.gov.cn" f="left" w="1200" b="wzalink"></script>
+			 <script>
+				$(function(){
+					var jiucuoData = $('.j-jiucuo').attr('data-setting');
+					var jiucuoDataObj = eval('(' + jiucuoData + ')');
+					if(jiucuoDataObj){
+						var url = 'https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=' + jiucuoDataObj.sitecode + '&url=' + encodeURIComponent(window.location.href);
+						$('.j-jiucuo').find('a').attr({'href':url,'target':'_blank'});
+					}
+				});
+				</script>
+				<script>
+					// 弹窗
+					$(function () {
+						$(".refer").on('click', function () {
+							$(".m-tc").stop().fadeIn(500);
+						});
+						$(".guanbi").on('click', function () {
+							$(".m-tc").stop().fadeOut(500);
+						});
+						$(".seek-box").on('click', function () {
+							event.stopPropagation();
+						});
+					});
+
+
+	       $(function() {
+
+                $("form[name=report]").submit(function() {
+					var error_type = $("#error_type").val();
+					var error_url = $("#error_url").val();
+                    var name = $("#name").val();
+                    var contact_info = $("#contact_info").val();
+                    var error_text = $("#error_text").val();
+                    var vcode = $("#vcode").val();
+					if (error_type === "") {
+                        showNoty(4, 5, "请选择错误类型！", 3000, true);
+                        return false;
+                    }
+					if (error_url === "") {
+                        showNoty(4, 5, "请输入错误链接！", 3000, true);
+                        return false;
+                    }
+                    if (name === "") {
+                        showNoty(4, 5, "请输入您的姓名！", 3000, true);
+                        return false;
+                    }
+                    if (contact_info === "") {
+                        showNoty(4, 5, "请输入联系电话！", 3000, true);
+                        return false;
+                    }
+                    if (contact_info !== "") {
+                        if (!is_Phone(contact_info)) {
+                            showNoty(4, 5, "号码输入有误，请重新输入！", 3000, true);
+                            return false;
+                        }
+                    }
+                    if (error_text === "") {
+                        showNoty(4, 5, "请输入内容！", 3000, true);
+                        return false;
+                    }
+                    if (vcode === "" || vcode.length !== 4) {
+                        showNoty(4, 5, "验证码输入有误！", 3000, true);
+                        return false;
+                    }
+                    var options = {
+                        dataType: "json",
+                        cache: false,
+                        success: function(data) {
+                    	  if (data.status === 2) {
+                          	showNoty(data.status, 2, data.msg, 3000, true);
+                          	var src = "/index.php?c=utility&m=createCaptcha&r=" + Math.random();
+          					$("#captcha").attr("src", src);
+							window.location.reload();
+                          } else {
+                          	showNoty(data.status, 5, data.msg, 3000, true);
+                          }
+                        }
+                    };
+                    $(this).ajaxSubmit(options);
+                    return false;
+                });
+
+                /*
+                 * 刷新验证码
+                 */
+                $("#captcha").click(function() {
+                    $(this).attr('src', '/utility/createCaptcha/?r=' + Math.random() * 10);
+                });
+
+                /**
+                 * ish-changeNext 看不清楚换一张
+                 */
+                $(".ish-changeNext").click(function() {
+                    $("#captcha").attr('src', '/utility/createCaptcha/?r=' + Math.random() * 10);
+                });
+            });
+				</script>
+    <!--右侧悬浮 end-->
+    <!--乡镇与部门模态框 on-->
+    <div class="modal fade" id="depService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog container">
+            <div class="modal-content" id="depServices">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">乡镇与部门</h4>
+                </div>
+                <div class="modal-body">
+                    <section class="m-depservice">
+                        <h1>乡镇</h1>
+                        <ul class="row" id="j-xzjd">
+                            <li class="col-xs-4 col-md-2"><a href="" target="_blank">1</a></li>
+                            <li class="col-xs-4 col-md-2"><a href="" target="_blank">2</a></li>
+                        </ul>
+                    </section>
+                    <section class="m-depservice">
+                        <h1>部门</h1>
+                        <ul class="row" id="j-dept"></ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--乡镇与部门模态框 end-->
+    <script src="https://www.ahzwfw.gov.cn/bog-bsdt/static/commonui-local.js"></script>
+	 <script type="text/javascript">
+        jQuery(".m-tzgg").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,scroll:2,vis:3});
+        jQuery(".m-ztzl").slide({titCell: ".hd ul",mainCell: ".bd ul",autoPage: true,effect: "leftLoop",autoPlay:true,vis: 4});
+		jQuery(".m-advert").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"fold",autoPlay:true});
+		jQuery(".m-ctadv").slide({mainCell:".bd ul",autoPlay:true});
+    </script>
+	<!--广告位——【对联广告】——结束-->
+    <script>
+        $(function(){
+        	$('.g-flash').owlCarousel({
+                singleItem:true,
+                autoPlay:3000,
+                stopOnHover:true
+            });
+            $(".m-openicons").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",vis:4});
+            $(".m-openthumbs").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,interTime:3500});
+            $(".m-interthumbs").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,interTime:3500});
+            $(".g-serrmtj").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",vis:3});
+            $(".g-special").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",autoPlay:true,vis:4});
+            showDepts('#j-dept');
+            var cityData = commonData.xzqh['341221000000'];
+            var xzhtml = '';
+            cityData.forEach(function(val){
+                xzhtml += '<li class="col-xs-4 col-md-2"><a href="'+ val.cxfl +'?cityCode='+ val.code +'&cityName='+ escape(val.name) + '" target="_blank">'+ val.name +'</a></li>';
+            })
+            $('#j-xzjd').html(xzhtml);
+        });
+    </script>
+	<script src="/media/js/grayscale.js"></script>
+<style>
+.site-gray, .site-gray *{
+	filter: gray !important;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+}
+</style>
+<script>
+function getUrlParam(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]); return null;
+}
+var reurl = getUrlParam('reurl');
+var timestamp = Date.parse(new Date());
+if(timestamp>1585929600000 && timestamp<1586015999000 || reurl == 'ishang'){
+	var navStr = navigator.userAgent.toLowerCase();
+	if(navStr.indexOf("msie 10.0")!==-1||navStr.indexOf("rv:11.0")!==-1){
+		grayscale(document.body);
+		grayscale(document.getElementsByTagName("img"));
+	}
+	$("html").addClass("site-gray");
+	$("body").css({'background': '#e2e2e2'});
+	$('#qmjlogo').attr('src','qmjlogo.png');
+}
+</script>
+<script>
+	$('.u-lxobj').change(function(){
+		var type = $(this).val();
+		if(type == 'P'){
+			$('.j-zcwjfr').addClass('f-dn').attr({'name':''});
+			$('.j-zcwjgr').removeClass('f-dn').attr({'name': 'flName'});
+		}else if(type == 'C'){
+			$('.j-zcwjgr').addClass('f-dn').attr({'name':''});
+			$('.j-zcwjfr').removeClass('f-dn').attr({'name': 'flName'});
+		}
+	})
+</script>
+
+
+</div>
+    <!--头部 on-->
+
+<!-- footerStart -->
 
 <!-- footerEnd -->
 </div>
-
-<script type="text/javascript" src="../static/js/_personal_Index.js"></script>
-<script>
-    var height = window.frames["tzgg"].document.body.scrollHeight;
-
-
-    var mainContent = document.getElementById('tzgg');
-    /*    mainContent.src = "http://xs.cqie.edu.cn/xg/NoticeNewsList/viewListPage?type=1"//嵌套网址
-*/
-    mainContent.src = "http://xs.cqie.edu.cn/xg/NoticeNewsList/viewListPage?type=1"//嵌套网址
-
-    // mainContent.src = "http://localhost:8081/xg/backstageNoNav.jsp?loadMainPage=spring:NoticeNewsList/viewListPage?type=1"//嵌套网址
-    var mainContent = document.getElementById('swzl');
-    /*   mainContent.src = "http://xs.cqie.edu.cn/xg/SWZLXXController/viewListPage?type=1"//嵌套网址
-*/
-    mainContent.src = "http://xs.cqie.edu.cn/xg/SWZLXXController/viewListPage?type=1"//嵌套网址
-
-    var mainContent = document.getElementById('syhd');
-
-    mainContent.src = "http://a.cqie.edu.cn/cas/login?service=http%3a%2f%2fxs.cqie.edu.cn%2fxg%2fssoLogin.jsp%3frdPath%3dbackstageNoNav.jsp%3floadMainPage%3dspring%3aallhdzyz%2fFromQXHDMHViewMH"//嵌套网址
-
-
-    /* var xxfwContent = document.getElementById('xxfw');
-     xxfwContent.src = "http://oa.cqie.edu.cn/resource/jsp/widget.jsp?portletId=km.imissive.latestsend&renderId=sys.ui.classic.default&sourceOpt=%7B%22scope%22%3A%22no%22%2C%22rowsize%22%3A%228%22%2C%22cateid%22%3A%2215d160469de518322a78a41411699b8f%22%2C%22showNum%22%3A%22true%22%2C%22showSignature%22%3A%22true%22%7D&renderOpt=%7B%22firstRowScroll%22%3A%22%22%2C%22highlight%22%3A%22%22%2C%22showCreator%22%3A%22false%22%2C%22showCreated%22%3A%22true%22%2C%22showCate%22%3A%22false%22%2C%22cateSize%22%3A%220%22%2C%22newDay%22%3A%220%22%2C%22target%22%3A%22_blank%22%7D"
-
-
-     var xxtzContent = document.getElementById('xxtz');
-     xxtzContent.src = "http://oa.cqie.edu.cn/resource/jsp/widget.jsp?portletId=sys.news.main.withAtt&renderId=sys.ui.classic.default&sourceOpt=%7B%22scope%22%3A%22no%22%2C%22rowsize%22%3A%228%22%2C%22cateid%22%3A%2213b44e2c48b36b3ce8bedd64f61b1dc7%22%2C%22type%22%3A%22main%22%7D&renderOpt=%7B%22firstRowScroll%22%3A%22%22%2C%22highlight%22%3A%22%22%2C%22showCreator%22%3A%22false%22%2C%22showCreated%22%3A%22true%22%2C%22showCate%22%3A%22false%22%2C%22cateSize%22%3A%220%22%2C%22newDay%22%3A%220%22%2C%22target%22%3A%22_blank%22%7D";
-*/
-    /*    var xxggContent = document.getElementById('xxgg');
-        xxggContent.src = "http://oa.cqie.edu.cn/resource/jsp/widget.jsp?portletId=sys.news.main.withAtt&renderId=sys.ui.classic.default&sourceOpt=%7B%22scope%22%3A%22no%22%2C%22rowsize%22%3A%228%22%2C%22cateid%22%3A%2213b92d7b7391b95757fabd940c6998fb%22%2C%22type%22%3A%22main%22%7D&renderOpt=%7B%22firstRowScroll%22%3A%22%22%2C%22highlight%22%3A%22%22%2C%22showCreator%22%3A%22false%22%2C%22showCreated%22%3A%22true%22%2C%22showCate%22%3A%22false%22%2C%22cateSize%22%3A%220%22%2C%22newDay%22%3A%220%22%2C%22target%22%3A%22_blank%22%7D"
-*/
-
-</script>
-<script>
-    // var mySwiper= new Swiper('.swiper-container', {
-    //     autoplay:{
-    //         delay: 10000,//1秒切换一次
-    //     },
-    // });
-    $(function () {
-        $("#aFloatTools_Show").click(function () {
-            $('#divFloatToolsView').animate({width: 'show', opacity: 'show'}, 100, function () {
-                $('#divFloatToolsView').show();
-            });
-            $('#aFloatTools_Show').hide();
-            $('#aFloatTools_Hide').show();
-        });
-        $("#aFloatTools_Hide").click(function () {
-            $('#divFloatToolsView').animate({width: 'hide', opacity: 'hide'}, 100, function () {
-                $('#divFloatToolsView').hide();
-            });
-            $('#aFloatTools_Show').show();
-            $('#aFloatTools_Hide').hide();
-        });
-    });
-
-    $(function () {
-        $('.header li').on('click', function () {
-            $(this).addClass('active');
-            $(this).siblings().removeClass('active');
-        });
-
-        $('.new_tabs2 span').on('click', function () {
-            $(this).addClass('active');
-            $(this).siblings().removeClass('active');
-            if ($(this).index() == 0) {
-                $('#content7').show();
-                $('#content8').hide();
-                $("#moreRurl").attr("href", "http://www.yzu.edu.cn");
-            } else {
-                $('#content8').show();
-                $('#content7').hide();
-                $("#moreRurl").attr("href", "http://xxzx.yzu.edu.cn");
-            }
-            //$('.part-'+($(this).index()+1)).removeClass('hidden');
-            // $('.part-'+($(this).index()+1)).siblings().addClass('hidden');
-            // alert('#content'+Number($(this).index()+7))
-            //$('#content'+Number($(this).index()+8)).show();
-            //$('#content'+($(this).index()+7)).removeClass('hidden');
-            //$('#content'+($(this).index()+7)).siblings().addClass('hidden');
-        });
-
-
-        $('.calendarTitle').on('click', function () {
-            $(this).addClass('calendar_active').removeClass('calendar_normal');
-            $(this).siblings().removeClass('calendar_active').addClass('calendar_normal');
-            var index = $(this).index() + 1;
-            $('.event' + index).show();
-            $('.event' + index).siblings('.calendar_event').hide();
-        });
-
-
-        $('.sc').on('click', function () {
-            if ($(this).hasClass('ysc')) {
-                $(this).removeClass('ysc').text('收藏');
-            } else {
-                $(this).addClass('ysc').text('已收藏');
-            }
-        });
-
-        $('.new_tabs1 span').on('click', function () {
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
-            $('.content-' + Number($(this).index() + 1)).show();
-            $('.content-' + Number($(this).index() + 1)).siblings().hide();
-            if ($(this).index() == 0) {
-                moreUrl = "http://newsoa.yzu.edu.cn/exclusive.portal?.lm=oa-xntz-fb-yk";
-            } else if ($(this).index() == 1) {
-                moreUrl = "http://oa.yzu.edu.cn/index.portal?.ym=p47923_p241_p245";
-            } else if ($(this).index() == 2) {
-                moreUrl = "http://newsoa.yzu.edu.cn/exclusive.portal?.lm=oa-dwfw-yk";
-            } else if ($(this).index() == 3) {
-                moreUrl = "http://newsoa.yzu.edu.cn/exclusive.portal?.lm=oa-xzfw-yk";
-            } else if ($(this).index() == 4) {
-                moreUrl = "http://newsoa.yzu.edu.cn/exclusive.portal?.lm=oa-mzaphzfb-yk";
-            } else if ($(this).index() == 5) {
-                moreUrl = "http://newsoa.yzu.edu.cn/exclusive.portal?.lm=oa-xsbg-fb-yk";
-            }
-        });
-    });
-
-
-</script>
-
 <script src="../static/js/swiper.min.js"></script>
-<link rel="stylesheet" href="{% static '/css/swiper.css' %}">
-
-
-
-
-
-
-
-
-
 <script>
     var mySwiper = new Swiper('#case1', {
         autoplay: true, //可选选项，自动滑动
@@ -1510,18 +1116,13 @@
         speed: 2000, //设置过度时间
         /* grabCursor: true,//鼠标样式根据浏览器不同而定 */
         autoplay: {
-            delay: 3000
+            delay: 2000
         },
         /*  设置每隔3000毫秒切换 */
         <!-- 分页器 -->
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
-        },
-        <!-- 导航按钮 上一页下一页 -->
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
         },
         <!-- 滚动条 -->
         scrollbar: {
@@ -1530,16 +1131,12 @@
         },
         /*  设置当鼠标移入图片时是否停止轮播*/
         autoplay: {
-            disableOnInteraction: false,
+            disableOnInteraction: true,
         },
     });
 </script>
-
-
-
-
-
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.min.js' %}"></script>
+{% block js %} {% endblock %}
 </body>
-
-
 </html>

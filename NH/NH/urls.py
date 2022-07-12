@@ -18,8 +18,17 @@ from django.urls import path
 from django.views.generic import TemplateView
 from role import views
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     # path('',views.hello),
     path('',TemplateView.as_view(template_name="index.html"),name="home"),
+    path('jixiao/ck/',views.jx_list),
+
+    # 数据统计
+    path('chart/list/', views.chart_list),
+    path('chart/bar/',views.chart_bar),
+    path('chart/pie/',views.chart_pie),
+    path('chart/line/',views.chart_line),
+    path('chart/highcharts/', views.highcharts),
 ]

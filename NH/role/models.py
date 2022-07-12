@@ -37,28 +37,16 @@ class PersonInfo(models.Model):
 
 # 绩效任务表
 class PerformanceTask(models.Model):
-    recept_id = models.CharField(verbose_name="职工编号", unique=True, max_length=32)
-    # 接收人员
-    recept_staff = models.CharField(verbose_name="接收人员", max_length=32)
-    # 发布人员
+    """ 个人绩效表 """
+    recept=models.CharField(verbose_name="职工编号",max_length=32)
+    recept_staff = models.CharField(verbose_name="接收人", max_length=32)
     pub_staff = models.CharField(verbose_name="发布人", max_length=32)
-    # 发布时间
-    pub_time = models.DateField(auto_now_add=True, verbose_name="发布时间")
-    # 规定完成时间
-    completion_time = models.DateField(verbose_name="规定完成时间", null=True)
-    # 规定成交数量
-    volume = models.IntegerField(verbose_name="成交数量")
-    # 规定成交金额
-    turnover = models.IntegerField(verbose_name="成交金额", null=True)
-    # 任务描述信息
-    task_description = models.TextField(verbose_name="任务描述", null=True)
-    # 关联区域经理(一个区域经理对应多个任务绩效表)
-    user = models.ForeignKey(to=PersonInfo, to_field="id_num", on_delete=models.CASCADE)
+    pub_time = models.DateField(auto_now_add=True,verbose_name="发布时间")
+    completion_time = models.DateField(verbose_name="完成时间")
+    volume = models.IntegerField(verbose_name="成交数量", max_length=32,null=True)
+    turnover = models.IntegerField(verbose_name="成交金额", max_length=32,null=True)
+    task_description = models.TextField(verbose_name="任务描述", max_length=32)
 
-    class Meta:
-        ordering = ("pub_time",)
-        verbose_name_plural = "绩效任务"
-        verbose_name = "绩效任务"
 
 
 # 行政区域管理
