@@ -1,0 +1,265 @@
+{% extends 'index.html' %}
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="application-name" content="重庆档案信息网 "/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="HandheldFriendly" content="true"/>
+    <title>查档预约_档案服务_重庆档案信息网 </title>
+    {% block css %}
+    <link href="{% static '/css/content/module.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static '/css/content/default.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static '/css/content/bootstrap.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/content/upload.css' %}" rel="stylesheet">
+    <link href="{% static '/css/content/base.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/content/font-awesome.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/content/datetimepicker.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/content/page.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/content/LetterBox.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/content/power.phonemessagevalidate.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/content/power.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/content/layer.css' %}" rel="stylesheet"/>
+    <link href="{% static '/css/content/table.css' %}" rel="stylesheet"/>
+    {% endblock %}
+    {% block js %}
+    <script src="../static/js/content/jquery.js"></script>
+    <script src="../static/js/content/jquery-migrate.min.js"></script>
+    <script src="../static/js/content/jquery.cookie.js"></script>
+
+    <script src="../static/js/content/webCommon.js"></script>
+    <script src="../static/js/content/layer.js"></script>
+    <script src="../static/js/content/jquery.SuperSlide.js"></script>
+    <script src="../static/js/content/qrcode.min.js"></script>
+    <script src="../static/js/content/power.core.js"></script>
+    <script src="../static/js/content/power.security.csrf.js"></script>
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+
+    {% endblock %}
+
+<!--    {% block css_nh %}{% endblock %}-->
+<!--    {% block js_nh %}{% endblock %}-->
+</head>
+<body class="letterWritePage">
+{% block content %}
+<div class="wrap" style="height:535px;">
+    <input name="__RequestVerificationToken" type="hidden"
+           value="BCsAg2wVW074OmP6VpTcdT5zh1R6UCd42e_PDv9m8AE-2pgLW0GUKGPDgLIA6MIWzBH_5wvmSNQUPyL5yQoK6-hB90QMuZE6mI_y72hIS0g1"/>
+    <div id="content" class="siteWidth wzmxbg" >
+        <aside class="side">
+
+            <div id="sideMenu" class="sideBox">
+                <div class="hd">
+                    <h3>信息查询服务</h3>
+                </div>
+                <div class="bd">
+                    <ul class="menuList">
+                        {% block a_link %}
+                        <li class="on"><a href="#" onclick="return false" >精准查询</a></li>
+                        <li><a href="#" onclick="return false" >综合查询</a></li>
+                        {% endblock a_link %}
+                    </ul>
+                </div>
+            </div>
+            <script>
+                $("#sideMenu .bd li").click(function (){
+                    $(this).addClass("on");
+                    $(this).siblings("li").removeClass("on");//找到所有的button，删除btnCls
+                    $(".form-control").val("")
+                })
+                $("#sideMenu .bd li:eq(1)").click(function (){
+                    $("#formBox .bd tr:eq(0)").addClass("none")
+                    $("#formBox .bd tr:eq(1)").addClass("none")
+                    $("#formBox .bd tr:eq(2)").removeClass("none")
+                    $("#formBox .bd tr:eq(3)").removeClass("none")
+                    $("#formBox .bd tr:eq(4)").removeClass("none")
+                })
+                $("#sideMenu .bd li:eq(0)").click(function (){
+                    $("#formBox .bd tr:eq(0)").removeClass("none")
+                    $("#formBox .bd tr:eq(1)").removeClass("none")
+                    $("#formBox .bd tr:eq(2)").addClass("none")
+                    $("#formBox .bd tr:eq(3)").addClass("none")
+                    $("#formBox .bd tr:eq(4)").addClass("none")
+                })
+            </script>
+        </aside>
+        <div class="consult mainContent">
+            <div class="mainBox">
+                <div class="mHd">
+                    <h3>农户建档信息查询</h3>
+                    <div class="path">
+                        <em>您的位置：</em><a href="/">首页</a>
+                        &gt;<a href="/search">信息查询服务</a>
+                    </div>
+                </div>
+                {% block content_nh %}
+                <div id="formBox" style="">
+                    <form action="/search/" id="form1" method="POST" name="form1">
+                        {% csrf_token %}
+                         <div class="onlineplForm">
+                            <div class="hd">
+                                <h3>查询档案信息</h3>
+                                <span class="tips">（注意：标有<i>*</i>的必须填写）</span>
+                            </div>
+                            <div class="bd">
+                                <table class="LetterInfoTable" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                        <td class="tdlab"><span style="color: Red;">* </span>姓名：</td>
+                                        <td>
+                                            <input class="form-control" data-val="true" data-val-dangerous="true"
+                                                   data-val-length="姓名 不允许超过 100 个字符。" data-val-length-max="100"
+                                                   data-val-required="姓名 字段是必需的。" id="Name1" maxlength="100" name="Name1"
+                                                   type="text" value=""/>
+                                            <span class="field-validation-valid field-error" data-valmsg-for="Name1"
+                                                  data-valmsg-replace="true" style="color: Red;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tdlab"><span style="color: Red;">* </span>身份证号：</td>
+                                        <td>
+                                            <input class="form-control" data-ui-ime="inactive" data-val="true"
+                                                   data-val-idcard="身份证号 必须是有效的身份证格式。"
+                                                   data-val-length="身份证号 不允许超过 18 个字符。" data-val-length-max="18"
+                                                   data-val-required="身份证号 字段是必需的。" id="IdentityNumber" maxlength="18"
+                                                   name="IdentityNumber" type="text" value=""/>
+                                            <span class="field-validation-valid field-error"
+                                                  data-valmsg-for="IdentityNumber" data-valmsg-replace="true"
+                                                  style="color: Red;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr class="none">
+                                        <td class="tdlab"><span style="color: Red;"> </span>姓名：</td>
+                                        <td>
+                                            <input class="form-control" data-val="true" data-val-dangerous="true"
+                                                   data-val-length="姓名 不允许超过 100 个字符。" data-val-length-max="100"
+                                                   data-val-required="姓名 字段是必需的。" id="Name2" maxlength="100" name="Name2"
+                                                   type="text" value=""/>
+                                            <span class="field-validation-valid field-error" data-valmsg-for="Name2"
+                                                  data-valmsg-replace="true" style="color: Red;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr class="none">
+                                        <td class="tdlab"><span style="color: Red;"> </span>联系电话：</td>
+                                        <td>
+                                            <input class="form-control" data-ui-ime="inactive" data-val="true"
+                                                   data-val-length="手机号码 不允许超过 15 个字符。" data-val-length-max="15"
+                                                   data-val-regex="手机号码 必须是有效的手机号码格式。"
+                                                   data-val-regex-pattern="^1(3[0-9]|4[57]|5[0-35-9]|6[6]|8[0-9]|9[189]|7[035678])\d{8}$"
+                                                   data-val-required="手机号码 字段是必需的。" id="Telephone" maxlength="15"
+                                                   name="Telephone" type="text" value=""/>
+                                            <span class="field-validation-valid field-error" data-valmsg-for="Telephone"
+                                                  data-valmsg-replace="true" style="color: Red;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr  class="none">
+                                        <td class="tdlab">所属区域：</td>
+                                        <td>
+                                            <input class="form-control" data-val="true" data-val-dangerous="true"
+                                                   data-val-length="通讯地址 不允许超过 100 个字符。" data-val-length-max="100"
+                                                   id="Address" maxlength="100" name="Address" type="text" value=""/>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="bottombt">
+                                <input type="button" name="BtnAdd" value="查询" id="BtnAdd" class="inputbutton" onclick="check()"/>
+                                <input id="BtnCancel" class="restButton" name="BtnCancel" type="reset" value="重置">
+                            </div>
+                        </div>
+                         <div id="search_table" class="none">
+                             <table>
+                                 <tr>
+                                     <td>id</td>
+                                     <td>姓名</td>
+                                     <td>性别</td>
+                                     <td>身份证号</td>
+                                     <td>所属省份</td>
+                                     <td>注册时间</td>
+                                     <td>操作</td>
+                                 </tr>
+                                 {% if queryset %}
+                                 {% for i in queryset %}
+                                 <tr>
+                                     <td>{{ i.id }}</td>
+                                     <td>{{ i.name }}</td>
+                                     <td>{{ i.sex }}</td>
+                                     <td> {{ i.id_number }} </td>
+                                     <td> {{ i.province }} </td>
+                                     <td> {{ i.join_time }} </td>
+                                     <td><a href="/search/detail?detail_data={{i.id}}">查看</a></td>
+                                 </tr>
+                                 {% endfor %}
+                                 {% else %}
+                                    <tr>
+                                        <td colspan="6" align="center">查无此记录！</td>
+                                    </tr>
+                                 {% endif %}
+                             </table>
+                             <ul class="pagination">
+                                 {{ page_string }}
+                             </ul>
+
+                         </div>
+                         <script>
+                              $("#sideMenu .bd li").click(function (){
+                                    if($("#form1>div:eq(1)").children().length >= 1){
+                                        $("#form1>div:eq(1)").empty();
+                                    }
+                              })
+                              function check(){
+                                    if($("#sideMenu .bd li:eq(0)").is(".on")){
+                                        if($("#Name1").val().length==0){
+                                            console.log("aa")
+                                            return false;
+                                        }
+                                        if($("#IdentityNumber").val().length==0){
+                                            console.log("bb")
+                                            return false;
+                                        }
+                                    }
+                                    if($("#sideMenu .bd li:eq(1)").is(".on")){
+                                        if(($("#Name2").val().length==0) &
+                                            ($("#Telephone").val().length==0) &
+                                            ($("#Address").val().length==0)){
+                                            return false;
+                                        }
+                                    }
+                                    $("#form1").submit();
+                              }
+                         </script>
+                         <script>
+                              let status = {{ status }}
+                              let post_xx = {{ post_xx }}
+
+                              if(status==1){
+                                    $("#form1 .bd").addClass("none");
+                                    $("#form1 .bottombt").addClass("none");
+                                    $("#search_table").removeClass("none");
+                                    console.log(status)
+                              }
+                              if(post_xx==0){
+                                    $("#sideMenu .bd li:eq(1)").addClass("on")
+                                    $("#sideMenu .bd li:eq(0)").removeClass("on")
+                              }
+                              $("#sideMenu .bd li").click(function (){
+                                    $("#form1 .bd").removeClass("none");
+                                    $("#form1 .bottombt").removeClass("none");
+                                    $("#search_table").addClass("none");
+                              })
+                         </script>
+                    </form>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
